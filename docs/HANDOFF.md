@@ -1,506 +1,267 @@
-\# 開発引き継ぎ（HANDOFF）
+# 開発引き継ぎ（HANDOFF）
 
-
-
-> \*\*作業のたびにこのファイルを更新する。\*\*  
-
+> 作業のたびにこのファイルを更新する。
 > 別 PC・別エージェントは、まずこのファイルを読んで続きを行う。
 
-
-
-\---
-
-
-
-\## 最終更新
-
-
-
-\- \*\*日付:\*\* 2026-06-15
-
-\- \*\*作業 PC / 担当:\*\* 髙橋勇喜（任意）
-
-\- \*\*現在の Phase:\*\* Phase 0（準備・設計）→ \*\*Phase 1（骨組み）が次\*\*
-
-\- \*\*ステータス:\*\* 設計中 / 未実装
-
-\- \*\*設計メモ:\*\* RPG 風コマンド UI。TOP のみコマンド表示。詳細画面では非表示。画像（背景・キャラ・床）は選定済み。
-
-
-
-\---
-
-
-
-\## いま動いていること（1〜3行）
-
-
-
-プロジェクトはリポジトリ作成済み。参考サイト（`AIMade\_Takahashi\_PortfolioSite/`）のみ存在。\*\*本番用の `index.html` / `css` / `js` は未作成。\*\* ブラウザで動く RPG 風 PF はこれから Phase 1 から実装する。
-
-
-
-\---
-
-
-
-\## 完了したこと（チェックリスト）
-
-
-
-\### Phase 0：準備・設計
-
-\- \[x] サイトコンセプト決定（RPG 風・コマンド選択）
-
-\- \[x] 画面フロー方針（TOP → 詳細 → TOP でコマンド再表示）
-
-\- \[x] 使用画像の選定（背景・キャラクター・床）
-
-\- \[x] 参考サイトの配置（AI 作成版）
-
-\- \[ ] フォルダ構成の作成（`css/`, `js/`, `assets/images/`）
-
-\- \[ ] 画像ファイルのリポジトリへの配置
-
-\- \[ ] コマンド項目の最終確定
-
-\- \[ ] 本 HANDOFF / ROADMAP の `docs/` 配置
-
-
-
-\### Phase 1：骨組み
-
-\- \[ ] `index.html`
-
-\- \[ ] `css/style.css`
-
-\- \[ ] TOP 画面（背景 + 床 + キャラ）の表示
-
-
-
-\### Phase 2：コマンド UI
-
-\- \[ ] 吹き出し風コマンドパネル
-
-\- \[ ] About / Skills / Works / Contact ボタン
-
-
-
-\### Phase 3：画面切り替え
-
-\- \[ ] `currentScreen` 状態管理
-
-\- \[ ] `showScreen()` 実装
-
-\- \[ ] 詳細中はコマンド非表示 / TOP で再表示
-
-\- \[ ] 戻るボタン
-
-
-
-\### Phase 4〜6
-
-\- \[ ] 各画面コンテンツ
-
-\- \[ ] レスポンシブ
-
-\- \[ ] GitHub Pages 公開
-
-
-
-\---
-
-
-
-\## 決めたこと・やらないこと
-
-
-
-\### 決めたこと
-
-\- \*\*技術:\*\* HTML + CSS + JavaScript（フレームワークなし）
-
-\- \*\*UI:\*\* RPG 風。キャラ 1 体 + 吹き出し風コマンド
-
-\- \*\*コマンド:\*\* About / Skills / Works / Contact（4 項目・暫定）
-
-\- \*\*コマンド表示ルール:\*\* 詳細画面では非表示。TOP に戻ったら再表示
-
-\- \*\*画像:\*\* 背景・キャラ・床は自作/選定済みの素材を使う
-
-\- \*\*参考:\*\* `AIMade\_Takahashi\_PortfolioSite/takahashi\_portfolio\_site/` の文言・配色
-
-
-
-\### 未決定（相談中）
-
-\- \[ ] \*\*1 ページ構成 vs 複数 HTML\*\* — 推奨: 1 ページ + JS 切り替え
-
-\- \[ ] \*\*上部ヘッダーナビを付けるか\*\* — 推奨: 初期はコマンドのみ
-
-\- \[ ] \*\*Timeline / GitHub 自動取得を入れるか\*\* — 推奨: Phase 7 へ後回し
-
-\- \[ ] \*\*画像ファイル名と配置パス\*\* — `assets/images/` 想定、要記入
-
-\- \[ ] \*\*コマンドパネルの位置\*\* — キャラの右？ 下？ 画面右端？
-
-\- \[ ] \*\*詳細画面の見た目\*\* — 全画面オーバーレイ？ 右側パネル？ 別シーン風？
-
-
-
-\### やらないこと
-
-\- フレームワーク（React 等）導入（初期版）
-
-\- キャラの自由移動・マップ歩行（ポートフォリオの範囲外）
-
-\- バックエンド API の自前実装
-
-
-
-\---
-
-
-
-\## 画面・状態設計
-
-
-
-\### 状態一覧
-
-
-
-&#x20;   // main.js で使う画面 ID（想定）
-
-&#x20;   const SCREENS = {
-
-&#x20;     TOP: 'top',
-
-&#x20;     ABOUT: 'about',
-
-&#x20;     SKILLS: 'skills',
-
-&#x20;     WORKS: 'works',
-
-&#x20;     CONTACT: 'contact',
-
-&#x20;   };
-
-
-
-\### 表示ルール
-
-
+---
+
+## 最終更新
+
+- 日付: 2026-06-15
+- 作業 PC / 担当: 髙橋勇喜（任意）
+- 現在の Phase: Phase 1 ほぼ完了 → Phase 2（コマンド UI）が次
+- ステータス: TOP 画面（背景・床・キャラ）表示まで動作。コマンド・画面切り替えは未実装
+- 設計メモ: 本番はリポジトリ直下。3 レイヤー構成。JS は main_script.js（未接続）
+
+---
+
+## いま動いていること（1〜3行）
+
+index.html をブラウザで開くと、背景（bg.png）・床（floor.png）・キャラ（character.png）が重なって TOP 画面が表示される。コマンドメニュー・詳細画面・JavaScript の画面切り替えはまだない。
+
+---
+
+## 完了したこと（チェックリスト）
+
+### Phase 0：準備・設計
+- [x] サイトコンセプト決定（RPG 風・コマンド選択）
+- [x] 画面フロー方針（TOP → 詳細 → TOP でコマンド再表示）
+- [x] 使用画像の選定・配置
+- [x] 参考サイトの配置（AIMade_Takahashi_PortfolioSite/）
+- [x] フォルダ構成（css/, js/, assets/images/, docs/）
+- [x] コマンド項目の暫定確定（About / Skills / Works / Contact）
+- [x] ファイル名決定（main_style.css, main_script.js）
+
+### Phase 1：骨組み
+- [x] index.html（#app, #screen-top, 3 レイヤー）
+- [x] css/main_style.css（リセット + レイヤー配置）
+- [x] 背景 .scene-bg
+- [x] 床 .scene-floor
+- [x] キャラ .scene-character
+- [ ] .screen 切替用 CSS（他画面追加前の準備）
+- [ ] meta / OGP タグ
+
+### Phase 2：コマンド UI
+- [ ] 吹き出し風 .command-panel
+- [ ] About / Skills / Works / Contact ボタン
+- [ ] TOP のときだけコマンド表示
+
+### Phase 3：画面切り替え
+- [ ] main_script.js に showScreen() 等
+- [ ] index.html から script 読み込み
+- [ ] #screen-about 等の HTML 追加
+- [ ] 戻るボタン
+- [ ] 詳細中はコマンド非表示
+
+### Phase 4〜6
+- [ ] 各画面コンテンツ
+- [ ] レスポンシブ
+- [ ] GitHub Pages 公開
+
+---
+
+## 決めたこと・やらないこと
+
+### 決めたこと
+- 技術: HTML + CSS + JavaScript（フレームワークなし）
+- 本番パス: リポジトリ直下（index.html がある場所）
+- UI: RPG 風。キャラ 1 体 + 吹き出し風コマンド（これから）
+- TOP レイアウト: 3 レイヤー（背景 CSS / 床 img / キャラ img）
+- コマンド: About / Skills / Works / Contact（4 項目）
+- コマンド表示ルール: 詳細画面では非表示。TOP に戻ったら再表示
+- 画像: bg.png / floor.png / character.png
+- CSS / JS: main_style.css / main_script.js
+- 参考: AIMade_Takahashi_PortfolioSite/takahashi_portfolio_site/
+
+### 未決定（相談中）
+- [ ] 詳細表示中のキャラ — 消す / 半透明 / 小さく残す
+- [ ] コマンドパネルの位置 — キャラの右 / 下 / 画面右端
+- [ ] 詳細画面の見た目 — 全画面オーバーレイ / 右パネル / 別シーン風
+- [ ] HandMade_Takahashi_PortfolioSite/ を削除 or アーカイブするか
+- [ ] Timeline / GitHub 自動取得 — Phase 7 へ後回しでよいか
+
+### やらないこと
+- フレームワーク導入（初期版）
+- キャラの自由移動・マップ歩行
+- バックエンド API の自前実装
+
+---
+
+## 画面・状態設計
+
+### 現行 HTML 構造（index.html）
+
+    <div id="app">
+      <div id="screen-top" class="screen is-active">
+        <div class="scene-bg" role="img" aria-label="背景"></div>
+        <img class="scene-floor" src="assets/images/floor.png" alt="" />
+        <img class="scene-character" src="assets/images/character.png" alt="キャラクター" />
+      </div>
+    </div>
+
+### レイヤー（main_style.css）
+
+| クラス | 手段 | z-index | 備考 |
+|--------|------|---------|------|
+| .scene-bg | CSS background url(../assets/images/bg.png) | 0 | cover |
+| .scene-floor | img | 1 | translateY(16%) |
+| .scene-character | img | 2 | bottom 8%, width min(16vw,140px) |
+
+### 状態一覧（Phase 3 で実装予定）
+
+    let currentScreen = 'top';
+
+    function showScreen(name) {
+      document.querySelectorAll('.screen').forEach((el) => {
+        el.classList.remove('is-active');
+      });
+      document.getElementById('screen-' + name)?.classList.add('is-active');
+      currentScreen = name;
+    }
+
+### 表示ルール（目標）
 
 | 要素 | top | about 等 |
-
 |------|-----|----------|
-
-| 背景画像 | 表示 | 表示（または暗くする） |
-
-| キャラ + 床 | 表示 | 非表示 or 小さく残す（要相談） |
-
+| 背景 | 表示 | 表示 or 暗くする |
+| キャラ + 床 | 表示 | 要相談 |
 | コマンドパネル | 表示 | 非表示 |
-
 | 詳細コンテンツ | 非表示 | 表示 |
-
 | 戻るボタン | 非表示 | 表示 |
 
+---
 
+## データ設計（コンテンツ）
 
-\### HTML 構造（案）
-
-
-
-&#x20;   <div id="app">
-
-&#x20;     <div id="screen-top" class="screen is-active">
-
-&#x20;       <!-- 背景・床・キャラ・コマンドパネル -->
-
-&#x20;     </div>
-
-&#x20;     <div id="screen-about" class="screen">...</div>
-
-&#x20;     <div id="screen-skills" class="screen">...</div>
-
-&#x20;     <div id="screen-works" class="screen">...</div>
-
-&#x20;     <div id="screen-contact" class="screen">...</div>
-
-&#x20;   </div>
-
-
-
-\### CSS のイメージ（案）
-
-
-
-&#x20;   .screen { display: none; }
-
-&#x20;   .screen.is-active { display: block; }
-
-
-
-\### JavaScript のイメージ（Phase 3 のゴール）
-
-
-
-&#x20;   let currentScreen = 'top';
-
-
-
-&#x20;   function showScreen(name) {
-
-&#x20;     document.querySelectorAll('.screen').forEach((el) => {
-
-&#x20;       el.classList.remove('is-active');
-
-&#x20;     });
-
-&#x20;     document.getElementById('screen-' + name)?.classList.add('is-active');
-
-&#x20;     currentScreen = name;
-
-&#x20;   }
-
-
-
-\---
-
-
-
-\## データ設計（コンテンツ）
-
-
-
-\*\*正本:\*\* 初期は `index.html` 内のテキスト。のちに `content.json` 化も可（Phase 7）。
-
-
+正本（予定）: index.html 内のテキスト。
 
 | 画面 | 掲載内容（参考サイトから流用可） |
-
 |------|----------------------------------|
-
 | About | 名前、志望、制作で意識していること |
-
 | Skills | C++, DXLib, 3D, Tools |
-
 | Works | シロのマジックトレーニング / 2Dアクション / 3Dシューティング |
-
 | Contact | メールリンク（公開前に実アドレスへ） |
 
+公開前に必ず差し替え:
+- your-email@example.com → 実メール
+- OGP URL → 実公開 URL
 
+---
 
-\*\*公開前に必ず差し替え:\*\*
+## 画像アセット
 
-\- `your-email@example.com` → 実メール
+| 用途 | ファイル名 | パス | 状態 |
+|------|-----------|------|------|
+| 背景 | bg.png | assets/images/bg.png | 配置済み・使用中 |
+| 床 | floor.png | assets/images/floor.png | 配置済み・使用中 |
+| キャラ | character.png | assets/images/character.png | 配置済み・使用中 |
 
-\- OGP URL → 実公開 URL
+---
 
+## 次にやること（優先順）
 
+### Step 1: コマンド UI の HTML（Phase 2）
 
-\---
+1. #screen-top 内に .command-panel を追加
+2. About / Skills / Works / Contact のボタン（または a タグ）を並べる
+3. 参考サイトの .command-panel デザインを main_style.css に移植
 
+### Step 2: コマンドの見た目調整（Phase 2 続き）
 
+1. パネル位置（キャラの右など）を CSS で決める
+2. ホバー・フォーカス時のスタイル
 
-\## 画像アセット
+### Step 3: 画面切り替えの準備（Phase 3）
 
+1. main_style.css に .screen { display: none; } .screen.is-active { display: block; } を追加
+2. #screen-about 等を HTML に追加（仮テキストで可）
+3. main_script.js に showScreen() を書く
+4. index.html の script を有効化（src="js/main_script.js" に修正）
+5. 戻るボタンで showScreen('top')
 
+### Step 4 以降
 
-| 用途 | ファイル名（要記入） | パス（予定） |
+- Phase 4: 参考サイトから本文を入れる
+- Phase 5: スマホ幅で確認
+- Phase 6: GitHub Pages
 
-|------|---------------------|-------------|
+---
 
-| 背景 | （未定） | `assets/images/` |
+## 困っていること・メモ
 
-| キャラクター | （未定） | `assets/images/` |
+- [!] docs/ROADMAP.md がゲームプロジェクトの内容に上書きされていた — ポートフォリオ用に差し替えすること。
+- [!] index.html の script コメントは js/main.js だが、実ファイル名は main_script.js。
+- [!] main_script.js は空。script タグもコメントアウトのまま。
+- [!] .screen / .is-active の CSS が未定義（HTML には is-active あり）。
+- [!] CSS コメントと数値が不一致（floor translateY、character bottom）。
+- [!] HandMade_Takahashi_PortfolioSite/PortfolioSite/ とリポジトリ直下でファイルが二重。正本は直下。
+- [i] Phase 1 で床・キャラ位置は手動微調整済み。
+- [i] JavaScript 超初心者 — showScreen() から始める。
+- [?] GitHub Pages 公開時、ルートをリポジトリ直下のままにするか要確認。
 
-| 床（足元） | （未定） | `assets/images/` |
+---
 
-
-
-\---
-
-
-
-\## 次にやること（優先順）
-
-
-
-\### Step 0: フォルダと画像（Phase 0 完了）
-
-
-
-1\. フォルダを作る: `css/` / `js/` / `assets/images/` / `docs/`
-
-2\. 背景・キャラ・床の画像を `assets/images/` に置く
-
-3\. この HANDOFF の「画像アセット」表を更新する
-
-4\. `docs/ROADMAP.md` も同様に更新
-
-
-
-\### Step 1: TOP だけ表示（Phase 1）
-
-
-
-1\. `index.html` — 最低限の骨組み + `#screen-top`
-
-2\. `css/style.css` — 背景・床・キャラの位置決め
-
-3\. ブラウザで `index.html` を開いて確認
-
-
-
-\### Step 2: コマンド見た目（Phase 2）
-
-
-
-1\. 吹き出し風 `.command-panel` を TOP に追加
-
-2\. 参考サイトの `.command-panel` スタイルをベースに調整
-
-
-
-\### Step 3: 画面切り替え（Phase 3）
-
-
-
-1\. `js/main.js` 作成
-
-2\. 各 `#screen-\*` を HTML に追加（中身は仮テキストで OK）
-
-3\. `showScreen()` + コマンドの click イベント
-
-4\. 戻るボタンで `showScreen('top')`
-
-
-
-\### Step 4 以降
-
-
-
-\- Phase 4: 参考サイトから本文をコピーして整形
-
-\- Phase 5: スマホ幅で確認
-
-\- Phase 6: GitHub Pages
-
-
-
-\---
-
-
-
-\## 困っていること・メモ
-
-
-
-\- \[i] \*\*JavaScript 歴は超初心者\*\* — Phase 3 は 1 関数ずつ動作確認しながら進める
-
-\- \[i] \*\*参考サイトは「縦スクロール 1 ページ」\*\* — 本プロジェクトは「画面切り替え型」に作り直す
-
-\- \[?] \*\*詳細表示中のキャラ\*\* — 完全に隠す / 半透明で残す / 小さく隅に残す（未決定）
-
-\- \[?] \*\*コマンドの操作感\*\* — クリックのみ / キーボード上下 + Enter（RPG っぽい・後から可）
-
-\- \[i] 画像パスは相対パス `assets/images/xxx.png` 推奨
-
-
-
-\---
-
-
-
-\## Phase 完了チェック
-
-
+## Phase 完了チェック
 
 | Phase | 完了日 | メモ |
-
 |-------|--------|------|
-
-| 0 |  | 設計中 |
-
-| 1 |  |  |
-
-| 2 |  |  |
-
+| 0 | 2026-06-15 | |
+| 1 |  | ほぼ完了（.screen CSS と meta 残） |
+| 2 |  | 次 |
 | 3 |  |  |
-
 | 4 |  |  |
-
 | 5 |  |  |
-
 | 6 |  |  |
 
+---
 
+## 別エージェントへの依頼文（コピペ用）
 
-\---
+docs/HANDOFF.md と docs/ROADMAP.md を読んでから作業してください。
+メインは Takahashi_Portfolio_WebSite_260615/ リポジトリ直下です。
+Phase 1（TOP 3 レイヤー表示）はほぼ完了。次は Phase 2（コマンド UI）から。
 
+- index.html + css/main_style.css で背景・床・キャラは表示済み
+- コマンドパネル未実装。参考: AIMade の .command-panel
+- JS は js/main_script.js（空・未読み込み）。Phase 3 で showScreen()
+- 画像: assets/images/bg.png, floor.png, character.png
+- HandMade_Takahashi_PortfolioSite/ は旧フォルダ。直下が正本
 
+---
 
-\## 別エージェントへの依頼文（コピペ用）
+## 触った・参照するファイル（主要）
 
+### 本番（リポジトリ直下）
+- index.html
+- css/main_style.css
+- js/main_script.js（空）
+- assets/images/bg.png
+- assets/images/floor.png
+- assets/images/character.png
 
+### ドキュメント
+- docs/HANDOFF.md
+- docs/ROADMAP.md
 
-docs/HANDOFF.md と docs/ROADMAP.md を読んでから作業してください。  
+### 参考
+- AIMade_Takahashi_PortfolioSite/takahashi_portfolio_site/index.html
+- AIMade_Takahashi_PortfolioSite/takahashi_portfolio_site/style.css
+- AIMade_Takahashi_PortfolioSite/takahashi_portfolio_site/script.js
 
-メインは Takahashi\_Portfolio\_WebSite\_260615/ です。  
+### 重複注意
+- HandMade_Takahashi_PortfolioSite/PortfolioSite/（同名画像・空 CSS/JS）
 
-現在 Phase 0（設計）。次は Phase 1（HTML + 画像で TOP 表示）から。
+---
 
+## 参照した主なファイル一覧
 
-
-\- RPG 風コマンド UI。TOP のみコマンド表示、詳細では非表示
-
-\- 画像（背景・キャラ・床）は選定済み。パスは HANDOFF 参照
-
-\- 参考: AIMade\_Takahashi\_PortfolioSite/takahashi\_portfolio\_site/（文言・配色のみ。構成は画面切り替え型で新規）
-
-\- JS は初心者向けにシンプルに。showScreen() 中心で実装
-
-\- 未決定項目は勝手に決めず、HANDOFF の「未決定」に追記して相談
-
-
-
-\---
-
-
-
-\## 触った・参照するファイル（主要）
-
-
-
-\### 本番（これから作る）
-
-
-
-\- index.html
-
-\- css/style.css
-
-\- js/main.js
-
-\- assets/images/（背景・キャラ・床）
-
-\- docs/HANDOFF.md
-
-\- docs/ROADMAP.md
-
-
-
-\### 参考（読むだけ・流用可）
-
-
-
-\- AIMade\_Takahashi\_PortfolioSite/takahashi\_portfolio\_site/index.html
-
-\- AIMade\_Takahashi\_PortfolioSite/takahashi\_portfolio\_site/style.css
-
-\- AIMade\_Takahashi\_PortfolioSite/takahashi\_portfolio\_site/script.js
-
-\- AIMade\_Takahashi\_PortfolioSite/takahashi\_portfolio\_site/README.md
-
+- index.html
+- css/main_style.css
+- js/main_script.js
+- assets/images/bg.png
+- assets/images/floor.png
+- assets/images/character.png
+- docs/ROADMAP.md（誤ってゲーム用内容が入っていた）
+- docs/HANDOFF.md（旧版・エスケープ混在）
+- AIMade_Takahashi_PortfolioSite/takahashi_portfolio_site/index.html
+- AIMade_Takahashi_PortfolioSite/takahashi_portfolio_site/style.css
