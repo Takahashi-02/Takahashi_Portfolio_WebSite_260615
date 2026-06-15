@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>髙橋 勇喜 | Game Engineer Portfolio</title>
+  <meta name="description" content="ゲームプログラマ志望・髙橋勇喜のポートフォリオサイトです。C++、DXライブラリを中心とした制作実績、スキル、学習姿勢を掲載しています。" />
+  <meta name="keywords" content="髙橋勇喜, ポートフォリオ, ゲームプログラマ, C++, DXライブラリ, Visual Studio, Unity, Unreal Engine" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="髙橋 勇喜 | Game Engineer Portfolio" />
+  <meta property="og:description" content="人間味と設計意識を伝える、ゲームエンジニア志望の就活用ポートフォリオです。" />
+  <meta property="og:url" content="https://takahashi_pf.jp/" />
+  <meta property="og:image" content="https://takahashi_pf.jp/ogp.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header" aria-label="固定ヘッダー">
+    <a class="logo" href="#hero" aria-label="トップへ戻る">
+      <span class="logo-mark">Y</span>
+      <span class="logo-text">Yuki Takahashi</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="メニューを開閉する" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="global-nav" aria-label="主要ナビゲーション">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#works">Works</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero section">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow"><i class="fa-solid fa-gamepad"></i> Game Engineer Portfolio</p>
+        <h1>人間味と設計意識で、<br />遊びの仕組みを作る。</h1>
+        <p class="hero-lead">ゲームプログラマ志望の髙橋勇喜です。C++とDXライブラリを中心に、処理の流れを図式化しながら、読みやすく説明しやすい実装を目指しています。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#works"><i class="fa-solid fa-wand-magic-sparkles"></i> Worksを見る</a>
+          <a class="btn btn-secondary" href="#contact"><i class="fa-regular fa-envelope"></i> 連絡先を見る</a>
+        </div>
+      </div>
+
+      <aside class="command-panel reveal" aria-label="RPG風コマンドメニュー">
+        <div class="panel-title">Command</div>
+        <a href="#about"><span>About</span><small>自己紹介</small></a>
+        <a href="#skills"><span>Skills</span><small>技術</small></a>
+        <a href="#works"><span>Works</span><small>制作実績</small></a>
+        <a href="#contact"><span>Contact</span><small>連絡</small></a>
+      </aside>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="section-heading reveal">
+        <p class="eyebrow">About Magic</p>
+        <h2>自己紹介</h2>
+        <p>採用担当者が人物像と制作姿勢を把握できるよう、技術だけでなく考え方も掲載しています。</p>
+      </div>
+      <div class="about-grid">
+        <article class="card profile-card reveal">
+          <div class="avatar" aria-hidden="true"><i class="fa-solid fa-user-astronaut"></i></div>
+          <h3>髙橋 勇喜</h3>
+          <p>ゲーム業界のゲームプログラマ・エンジニア職を志望しています。見た人に「エンジニア志望であること」と「人間味があること」が伝わる構成を目指しています。</p>
+        </article>
+        <article class="card reveal">
+          <h3><i class="fa-solid fa-compass-drafting"></i> 制作で意識していること</h3>
+          <ul class="check-list">
+            <li>エンジニア以外でも処理の流れを追いやすい設計・コメントを付けること</li>
+            <li>何がどの順番で動いているかを図式化し、仕組みから理解すること</li>
+            <li>問題発生時に、表面的な修正ではなく原因の根元を確認すること</li>
+            <li>現在の理解度に合う設計を選び、無理に難しい機能へ飛びつかないこと</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section skills">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Skills Magic</p>
+        <h2>スキルセット</h2>
+        <p>C++とDXライブラリを中心に、ゲーム制作に必要な実装を段階的に学習しています。</p>
+      </div>
+      <div class="skill-grid">
+        <article class="skill-card reveal">
+          <i class="fa-solid fa-code"></i>
+          <h3>C++</h3>
+          <p>プレイヤー制御、シーン遷移、弾管理、状態遷移、当たり判定などの実装経験があります。</p>
+        </article>
+        <article class="skill-card reveal">
+          <i class="fa-solid fa-dice-d20"></i>
+          <h3>DXライブラリ</h3>
+          <p>2Dゲーム制作を中心に、描画、入力、UI、マップチップ、簡易AIを実装しています。</p>
+        </article>
+        <article class="skill-card reveal">
+          <i class="fa-solid fa-cube"></i>
+          <h3>3D制作</h3>
+          <p>3Dモデルの描画、空間制御、弾の管理、当たり判定を学習・制作中です。</p>
+        </article>
+        <article class="skill-card reveal">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+          <h3>Tools</h3>
+          <p>Visual Studio、GIMP、HTML、CSS、JavaScriptを使用しています。UnityとUnreal Engineも学習対象です。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="works" class="section works">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Works Magic</p>
+        <h2>制作実績</h2>
+        <p>完成作品と制作中作品を分け、担当範囲と使用技術が確認できる構成にしています。</p>
+      </div>
+      <div class="works-grid">
+        <article class="work-card reveal">
+          <div class="work-thumb"><i class="fa-solid fa-hand-sparkles"></i></div>
+          <div class="work-body">
+            <span class="status">動画あり / コードなし</span>
+            <h3>シロのマジックトレーニング</h3>
+            <p>3すくみのルールロジック、シーン遷移、UI描画を担当した作品です。PC破損によりソースコードと実行環境は現存しませんが、プレイ動画で内容を確認できる想定です。</p>
+            <div class="tags"><span>DXLib</span><span>C++</span><span>Visual Studio</span><span>GIMP</span></div>
+          </div>
+        </article>
+        <article class="work-card reveal">
+          <div class="work-thumb"><i class="fa-solid fa-person-running"></i></div>
+          <div class="work-body">
+            <span class="status in-progress">制作中</span>
+            <h3>2Dアクションゲーム（仮）</h3>
+            <p>キャラクター制御、箱型・円形の当たり判定、敵AI、マップチップ描画などを実装している2Dアクション作品です。</p>
+            <div class="tags"><span>DXLib</span><span>C++</span><span>Visual Studio</span><span>GIMP</span></div>
+          </div>
+        </article>
+        <article class="work-card reveal">
+          <div class="work-thumb"><i class="fa-solid fa-jet-fighter-up"></i></div>
+          <div class="work-body">
+            <span class="status in-progress">制作中</span>
+            <h3>3Dシューティングゲーム（仮）</h3>
+            <p>3Dモデル描画、空間制御、プレイヤー・敵の弾管理、当たり判定を中心に制作している3Dシューティング作品です。</p>
+            <div class="tags"><span>DXライブラリ</span><span>C++</span><span>Visual Studio</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="timeline" class="section timeline-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Timeline</p>
+        <h2>学習・制作の流れ</h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="timeline-item"><span>Step 01</span><p>C++とDXライブラリで2Dゲーム制作を開始しました。</p></div>
+        <div class="timeline-item"><span>Step 02</span><p>シーン遷移、UI、ルールロジック、プレイヤー制御を実装しました。</p></div>
+        <div class="timeline-item"><span>Step 03</span><p>当たり判定、敵AI、マップチップ描画など、ゲームらしい構造を追加しています。</p></div>
+        <div class="timeline-item"><span>Step 04</span><p>3Dシューティング制作を通じて、3D空間とモデル描画を学習中です。</p></div>
+      </div>
+    </section>
+
+    <section id="github" class="section github-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">GitHub</p>
+        <h2>GitHubリポジトリ</h2>
+        <p>ユーザー名を設定すると、公開リポジトリを自動取得できます。</p>
+      </div>
+      <div class="github-box card reveal">
+        <div class="github-controls">
+          <input id="githubUser" type="text" value="" placeholder="GitHubユーザー名を入力" aria-label="GitHubユーザー名" />
+          <button class="btn btn-primary" id="loadRepos" type="button"><i class="fa-brands fa-github"></i> 取得する</button>
+        </div>
+        <div id="repoList" class="repo-list" aria-live="polite">
+          <p class="muted">例：ユーザー名を入力して「取得する」を押してください。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="contact-card reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>お問い合わせ</h2>
+        <p>制作物や選考に関する連絡は、以下のメールリンクから送信できます。</p>
+        <a class="btn btn-primary" href="mailto:your-email@example.com?subject=%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%E3%82%92%E6%8B%9D%E8%A6%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F"><i class="fa-regular fa-envelope"></i> your-email@example.com</a>
+        <p class="note">公開前にメールアドレスとGitHubユーザー名を実データへ置き換えてください。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; 2026 Yuki Takahashi. All Rights Reserved.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
