@@ -37,9 +37,8 @@ body {
 
 /* ========================================
    レイヤー1: 床 .scene-floor
-   - 透過 PNG なので、透明な上部分は「何も描画しない」
-   - bottom: 0 … 画像の下辺を画面下に合わせる
-   - width: 100% … 横いっぱいに伸ばす
+   - translateY(8%) … 画像ごと少し下へ（土が隠れて草ラインが下がる）
+   - #screen-top の overflow:hidden で画面外は切れる
    ======================================== */
 .scene-floor {
   position: absolute;
@@ -49,20 +48,20 @@ body {
   height: auto;
   z-index: 1;
   pointer-events: none;
+  transform: translateY(16%);   /* ← 地面を下げる。6%〜12% で微調整 */
 }
 
 /* ========================================
    レイヤー2: キャラ .scene-character
-   - bottom: 22% … 床の草ライン付近（合わなければ 18%〜28% で調整）
-   - left: 50% + translateX(-50%) … 水平中央
-   - width: min(24vw, 200px) … 大きすぎないように上限
+   - width を小さく … キャラ全体を縮小
+   - bottom を大きく … 足元を上げて草の上に乗せる
    ======================================== */
 .scene-character {
   position: absolute;
-  bottom: 22%;
+  bottom: 8%;                  /* ← 足の高さ。28%〜34% で微調整 */
   left: 50%;
   transform: translateX(-50%);
-  width: min(24vw, 200px);
+  width: min(16vw, 140px);      /* ← 以前は 24vw/200px。小さくした */
   height: auto;
   z-index: 2;
 }
