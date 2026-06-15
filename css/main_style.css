@@ -1,0 +1,68 @@
+/* ========================================
+   リセット（最低限）
+   - ブラウザ標準の余白を消す
+   ======================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* ========================================
+   TOP 画面の土台 #screen-top
+   - min-height: 100vh … 画面の高さいっぱい
+   - position: relative … 子要素の absolute の基準になる
+   - overflow: hidden … はみ出しを切る
+   ======================================== */
+#screen-top {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ========================================
+   レイヤー0: 背景（空） .scene-bg
+   - inset: 0 … 上下左右ぴったり親に合わせる
+   - z-index: 0 … いちばん奥
+   - cover … 比率を保ったまま画面全体を覆う
+   ======================================== */
+.scene-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("../assets/images/bg.png") center / cover no-repeat;
+}
+
+/* ========================================
+   レイヤー1: 床 .scene-floor
+   - 透過 PNG なので、透明な上部分は「何も描画しない」
+   - bottom: 0 … 画像の下辺を画面下に合わせる
+   - width: 100% … 横いっぱいに伸ばす
+   ======================================== */
+.scene-floor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ========================================
+   レイヤー2: キャラ .scene-character
+   - bottom: 22% … 床の草ライン付近（合わなければ 18%〜28% で調整）
+   - left: 50% + translateX(-50%) … 水平中央
+   - width: min(24vw, 200px) … 大きすぎないように上限
+   ======================================== */
+.scene-character {
+  position: absolute;
+  bottom: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(24vw, 200px);
+  height: auto;
+  z-index: 2;
+}

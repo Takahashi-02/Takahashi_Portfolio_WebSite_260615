@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>髙橋 勇喜 | Game Engineer Portfolio</title>
+
+  <!-- css/style.css を読み込む（index.html と同じ階層の css フォルダ） -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!--
+    #app … サイト全体の入れ物（将来、詳細画面などもここに増やす）
+    #screen-top … TOP 画面の「箱」。中の要素を CSS で重ねる
+  -->
+  <div id="app">
+    <div id="screen-top" class="screen is-active">
+
+      <!-- レイヤー0: 空（div + CSS の background-image） -->
+      <div class="scene-bg" role="img" aria-label="背景"></div>
+
+      <!-- レイヤー1: 床（透過PNG → 道と土だけ見える） -->
+      <img class="scene-floor" src="assets/images/floor.png" alt="" />
+
+      <!-- レイヤー2: キャラ（透過PNG） -->
+      <img class="scene-character" src="assets/images/character.png" alt="キャラクター" />
+
+    </div>
+  </div>
+
+  <!-- Phase 3 で画面切り替えを入れるときに有効化 -->
+  <!-- <script src="js/main.js"></script> -->
+
+</body>
+</html>
