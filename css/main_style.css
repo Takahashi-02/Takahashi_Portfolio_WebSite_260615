@@ -306,7 +306,7 @@ body.is-detail-open .scene-character
   top: 12%;            /* ジャンプバーが上に詰まった分、少し上げてもOK */
   left: 2%;
   width: calc(100% - 180px);  /* 右に約180px（キャラ用）を空ける */
-  max-width: 1100px;
+  max-width: 1150px;
   height: min(72vh, 600px);
   /* 以下はそのまま */
   padding: 20px 24px;
@@ -344,3 +344,48 @@ body.is-detail-open .scene-character
   display: none;
 }
 
+/* ========================================
+   About 画面のスタイル
+   - .about-lead … リード文（最初の説明）
+   ======================================== */
+.about-lead {
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+.about-more {
+  margin-top: 8px;
+}
+.btn-more {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 8px 20px;
+  background: #000;
+  border: 2px solid #fff;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+.about-more[open] .btn-more {
+  background: #fff;
+  color: #000;
+}
+.about-section {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+.section-lead {
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+.bio-card,
+.strength-card {
+  margin: 12px 0;
+  padding: 12px 14px;
+  border: 2px solid #fff;
+}
+.strength-num {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}

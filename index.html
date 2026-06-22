@@ -57,10 +57,6 @@
           <span>Works</span><small>制作実績</small> 
         </button>
 
-        <button type="button" class="command-item" data-screen="timeline">
-          <span>TimeLine</span><small>経歴</small>
-        </button>
-        
         <button type="button" class="command-item" data-screen="contact">
           <span>Contact</span><small>連絡先</small>
         </button>
@@ -73,7 +69,6 @@
         <button type="button" class="jump-item" data-screen="about">    About     </button>
         <button type="button" class="jump-item" data-screen="skills">   Skills    </button>
         <button type="button" class="jump-item" data-screen="works">    Works     </button>
-        <button type="button" class="jump-item" data-screen="timeline"> Timeline  </button>
         <button type="button" class="jump-item" data-screen="contact">  Contact   </button>
       </nav>
 
@@ -85,9 +80,80 @@
         
           <article class="detail-content" data-content="about">
         
-            <h2>About</h2>
-            <p>自己紹介（仮）</p>
-            
+              <h2>About</h2>
+                <!-- 短い自己紹介（最初から見える） -->
+                <p class="about-lead">
+                ゲーム業界のゲームプログラマ・エンジニア職を志望しています。
+                見た人に「エンジニア志望であること」と「人間味があること」が伝わる構成を目指しています。
+                </p>
+
+                <details class="about-more">
+                
+                  <summary class="btn-more">MORE</summary>
+                  <!-- ① 自分について（詳細） -->
+                  <section class="about-section">
+                  
+                    <h3>自分について</h3>
+                  
+                    <p>
+                    ここに詳しい自己紹介を書きます。
+                    </p>
+                  </section>
+                
+                  <!-- ② Biography（旧 Timeline） -->
+                  <section class="about-section">
+                  
+                    <h3>Biography</h3>
+                    <p class="section-lead">これまでの歩み</p>
+                  
+                    <div class="bio-card">
+                    <h4>Step 01</h4>
+                    <p>C++とDXライブラリで2Dゲーム制作を開始しました。</p>
+                    </div>
+                  
+                    <div class="bio-card">
+                    <h4>Step 02</h4>
+                    <p>シーン遷移、UI、ルールロジック、プレイヤー制御を実装しました。</p>
+                    </div>
+                    
+                    <div class="bio-card">
+                    <h4>Step 03</h4>
+                    <p>当たり判定、敵AI、マップチップ描画などを追加しています。</p>
+                    </div>
+                  
+                    <div class="bio-card">
+                    <h4>Step 04</h4>
+                    <p>3Dシューティング制作を通じて、3D空間とモデル描画を学習中です。</p>
+                    </div>
+                  
+                  </section>
+                  
+                  <!-- ③ 自分の強み -->
+                  <section class="about-section">
+                  <h3>わたしの強み</h3>
+                  
+                  <div class="strength-card">
+                    <span class="strength-num">01</span>
+                    <h4>強みのタイトル</h4>
+                    <p>説明文…</p>
+                  </div>
+                  
+                  <div class="strength-card">
+                    <span class="strength-num">02</span>
+                    <h4>強みのタイトル</h4>
+                    <p>説明文…</p>
+                  </div>
+                  
+                  <div class="strength-card">
+                    <span class="strength-num">03</span>
+                    <h4>強みのタイトル</h4>
+                    <p>説明文…</p>
+                  </div>
+
+                </section>
+
+              </details>
+
           </article>
 
           <article class="detail-content is-hidden" data-content="skills">
