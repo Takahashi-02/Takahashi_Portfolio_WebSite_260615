@@ -87,7 +87,7 @@ body
 {
   position:   absolute;
   bottom:     8%;                  /* ← 足の高さ。28%〜34% で微調整 */
-  left:       50%;
+  left:       70%;
   transform:  translateX(-50%);
   width:      min(16vw, 140px);      /* ← 以前は 24vw/200px。小さくした */
   height:     auto;
@@ -113,23 +113,6 @@ body
 {
   font-family:  "DotGothic16", sans-serif;
   color:        var(--text);
-}
-
-.command-panel 
-{
-  position: absolute;
-  right:          4%;
-  bottom:         38%;
-  z-index:        3;
-  width:          min(40vw, 320px);
-  padding:        20px;
-  background:     var(--panel-strong);
-  border:         3px solid var(--line);
-  border-radius:  var(--radius);
-  box-shadow:     none;
-  /* 二重枠っぽくするなら（任意） */
-  outline:        2px solid #000;
-  outline-offset: -5px;
 }
 
 .panel-title 
@@ -186,7 +169,7 @@ body
 {
   position: absolute;
   right: 4%;
-  bottom: 38%;
+  bottom: 20%;
   z-index: 3;
   width: min(40vw, 320px);
   padding: 28px;
@@ -246,22 +229,26 @@ body
    ======================================== */
 
 /* 詳細中はコマンドを隠す */
-body.is-detail-open .command-panel {
+body.is-detail-open .command-panel 
+{
   display: none;
 }
 
 /* キャラを右下へ（赤茶丸イメージ） */
-body.is-detail-open .scene-character {
-  left: auto;
-  right: 8%;
-  bottom: 8%;
-  transform: none;
-  /* 任意: ゆっくり移動 */
-  transition: left 0.25s ease, right 0.25s ease, bottom 0.25s ease, transform 0.25s ease;
+body.is-detail-open .scene-character 
+{
+  left:         auto;
+  right:        8%;
+  bottom:       8%;
+  transform:    none;
+
+  /*ゆっくり移動する*/
+  transition:   left 0.25s ease, right 0.25s ease, bottom 0.25s ease, transform 0.25s ease;
 }
 
 /* TOP に戻ったとき用（通常位置） */
-.scene-character {
+.scene-character 
+{
   transition: left 0.25s ease, right 0.25s ease, bottom 0.25s ease, transform 0.25s ease;
 }
 
@@ -269,49 +256,59 @@ body.is-detail-open .scene-character {
    ジャンプバー（ピンク枠・画面上部）
    z-index: 5
    ======================================== */
-.jump-bar {
-  position: absolute;
-  top: 2%;
-  left: 4%;
-  right: 4%;
+.jump-bar 
+{
+   position: absolute;
+  top: 2%;              /* 上の余白をなくす（2% → 0） */
+  right: 2%;            /* 右端に寄せる */
+  left: auto;          /* 左の指定を解除（重要） */
+  width: auto;         /* ボタン分だけの幅にする */
+  max-width: 100%;     /* 画面からはみ出さない保険 */
   z-index: 5;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  padding: 10px 12px;
+  justify-content: flex-end;  /* ボタンを右寄せ */
+  gap: 6px;            /* ボタン間（お好みで） */
+  padding: 8px;        /* 内側の余白を少し減らす */
   background: #000;
   border: 2px solid #fff;
 }
 
-.jump-bar.is-hidden {
+.jump-bar.is-hidden 
+{
   display: none;
 }
 
-.jump-item {
-  padding: 8px 12px;
-  background: #000;
-  border: 2px solid #fff;
-  color: #fff;
-  font: inherit;
-  cursor: pointer;
+.jump-item 
+{
+  padding:        8px 12px;
+  background:     #000;
+  border:         2px solid #fff;
+  color:          #ffffff;
+  font:           inherit;
+  cursor:         pointer;
 }
 
 .jump-item:hover,
-.jump-item.is-active {
+.jump-item.is-active 
+{
   background: #fff;
-  color: #000;
+  color:      #000;
 }
 
 /* ========================================
    大詳細パネル（オレンジ枠・左〜中央）
    z-index: 4
    ======================================== */
-.detail-panel {
+.detail-panel 
+{
   position: absolute;
-  top: 14%;
-  left: 4%;
-  width: min(62vw, 720px);
-  height: min(72vh, 560px);
+  top: 12%;            /* ジャンプバーが上に詰まった分、少し上げてもOK */
+  left: 2%;
+  width: calc(100% - 180px);  /* 右に約180px（キャラ用）を空ける */
+  max-width: 1100px;
+  height: min(72vh, 600px);
+  /* 以下はそのまま */
   padding: 20px 24px;
   z-index: 4;
   overflow-y: auto;
@@ -320,11 +317,13 @@ body.is-detail-open .scene-character {
   color: #fff;
 }
 
-.detail-panel.is-hidden {
+.detail-panel.is-hidden 
+{
   display: none;
 }
 
-.btn-back {
+.btn-back 
+{
   margin-bottom: 12px;
   padding: 8px 16px;
   background: #000;
@@ -334,12 +333,14 @@ body.is-detail-open .scene-character {
   cursor: pointer;
 }
 
-.btn-back:hover {
+.btn-back:hover 
+{
   background: #fff;
   color: #000;
 }
 
-.detail-content.is-hidden {
+.detail-content.is-hidden 
+{
   display: none;
 }
 
