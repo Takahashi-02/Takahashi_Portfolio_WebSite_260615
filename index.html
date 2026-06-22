@@ -7,6 +7,9 @@
 
   <!-- css/main_style.css を読み込む（index.html と同じ階層の css フォルダ） -->
   <link rel="stylesheet" href="css/main_style.css" />
+
+  
+
 </head>
 <body>
 
@@ -17,6 +20,7 @@
   <div id="app">
     <div id="screen-top" class="screen is-active">
 
+      <!-- レイヤー0: 空（div + CSS の background-image） -->
       <div class="scene-bg" aria-hidden="true">
         <div class="scene-bg__track">
           <img class="scene-bg__tile" src="assets/images/bg.png" alt="" />
@@ -29,6 +33,33 @@
 
       <!-- レイヤー2: キャラ（透過PNG） -->
       <img class="scene-character" src="assets/images/character.png" alt="キャラクター" />
+
+       <!-- レイヤー3: コマンドパネル（TOP のみ表示・Phase 3 で動かす） -->
+      <aside class="command-panel" aria-label="RPG風コマンドメニュー">
+        <div class="panel-title">Command</div>
+        
+        <!-- data-screen は Phase 3 の showScreen() で使う名前 -->
+        <button type="button" class="command-item" data-screen="about">
+          <span>About</span><small>自己紹介</small>
+        </button>
+        
+        <button type="button" class="command-item" data-screen="skills">
+          <span>Skills</span><small>技術スタック</small>
+        </button>
+        
+        <button type="button" class="command-item" data-screen="works">
+          <span>Works</span><small>制作実績</small>
+        </button>
+
+        <button type = "button" class="command-item" data-screen = "timeline">
+          <span>TimeLine</span><small>経歴</small>
+        </button>
+        
+        <button type="button" class="command-item" data-screen="contact">
+          <span>Contact</span><small>連絡先</small>
+        </button>
+        
+      </aside>
 
     </div>
   </div>

@@ -1,4 +1,4 @@
-/* ========================================
+ /* ========================================
    リセット（最低限）
    - ブラウザ標準の余白を消す
    ======================================== */
@@ -9,6 +9,8 @@
 body {
   margin: 0;
 }
+
+
 
 /* ========================================
    TOP 画面の土台 #screen-top
@@ -79,4 +81,74 @@ body {
   width: min(16vw, 140px);      /* ← 以前は 24vw/200px。小さくした */
   height: auto;
   z-index: 2;
+}
+
+/* ========================================
+   色の共通設定（参考サイトの配色）
+   ======================================== */
+:root {
+  --main: #38D5F5;
+  --sub: #6BEDB9;
+  --text: #FFFFFF;
+  --line: #030303;
+  --dark: #082333;
+  --panel-strong: rgba(8, 35, 51, 0.94);
+  --shadow: 0 20px 45px rgba(3, 3, 3, 0.20);
+  --radius: 24px;
+}
+body {
+  font-family: "Inter", "Noto Sans JP", sans-serif;
+  color: var(--text);
+}
+/* ========================================
+   レイヤー3: コマンドパネル
+   - z-index: 3 … 床・キャラより手前
+   - 右下に配置（キャラと重なりにくい）
+   ======================================== */
+.command-panel {
+  position: absolute;
+  right: 4%;
+  bottom: 38%;
+  z-index: 3;
+  width: min(40vw, 320px);
+  padding: 28px;
+  background: var(--panel-strong);
+  border: 3px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow), 8px 8px 0 var(--line);
+}
+.panel-title {
+  margin-bottom: 16px;
+  color: var(--sub);
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+/* ボタンをリンク風に見せる */
+.command-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 12px 0;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.command-item:hover {
+  background: var(--sub);
+  color: var(--dark);
+  transform: translateX(6px);
+}
+.command-item span {
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+.command-item small {
+  font-weight: 700;
 }
