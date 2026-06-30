@@ -90,14 +90,25 @@
                 <details class="about-more">
                 
                   <summary class="btn-more">MORE</summary>
+
                   <!-- ① 自分について（詳細） -->
                   <section class="about-section">
                   
                     <h3>自分について</h3>
                   
                     <p>
-                    ここに詳しい自己紹介を書きます。
+                      髙橋 勇喜です。ゲームプログラマ・エンジニア職を志望しています。
+                      C++ と DXライブラリを中心に、2D・3D ゲーム制作に取り組んでいます。
+                      技術だけでなく、処理の流れを追いやすい設計や、仕組みから理解することを大切にしています。
                     </p>
+
+                    <ul class="about-list">
+                      <li>エンジニア以外でも処理の流れを追いやすい設計・コメントを付けること</li>
+                      <li>何がどの順番で動いているかを図式化し、仕組みから理解すること</li>
+                      <li>問題発生時に、表面的な修正ではなく原因の根元を確認すること</li>
+                      <li>現在の理解度に合う設計を選び、無理に難しい機能へ飛びつかないこと</li>
+                    </ul>
+
                   </section>
                 
                   <!-- ② Biography（旧 Timeline） -->
@@ -134,20 +145,37 @@
                   
                   <div class="strength-card">
                     <span class="strength-num">01</span>
-                    <h4>強みのタイトル</h4>
-                    <p>説明文…</p>
+                    <h4>誰とでも話しやすい性格</h4>
+                    
+                    <p>
+                      在学中のティーチングアシスタントの経験や社会人時代に培った社交性を活かし、
+                      チーム内、外部とのコミュニケーションを通じて、プロジェクトの進行をスムーズにする能力があります。
+                      話しやすい環境がなければ、面白いゲームは作れないという信念を持ち、常に良好なコミュニケーションを心がけています。
+                    </p>
+
                   </div>
                   
                   <div class="strength-card">
                     <span class="strength-num">02</span>
-                    <h4>強みのタイトル</h4>
-                    <p>説明文…</p>
+                    <h4>問題を整理し、解決する力</h4>
+                    
+                    <p> 
+                        生じてしまった問題に対して、「なぜ」という問いを繰り返すことで抱えている課題、
+                        疑問点を洗い出し自分やチームのメンバーが理解できるまで整理することができます。
+                    </p>
+                  
                   </div>
                   
                   <div class="strength-card">
                     <span class="strength-num">03</span>
-                    <h4>強みのタイトル</h4>
-                    <p>説明文…</p>
+                    <h4>学びつづける探求心</h4>
+
+                    <p>
+                      常に新しい技術や機能が出続けるソフトウェア業界において、常に学び続ける姿勢を保ち続けています。
+                      在学中のゲーム制作も、参考にしたいゲームはどういう仕組みで動いているのかなどをイメージし、調べながら制作をするなど、
+                      どうすればもう1段階面白い、楽しいゲームが作れるのかを模索しながら制作を行っています
+                    </p>
+                  
                   </div>
 
                 </section>
@@ -157,25 +185,155 @@
           </article>
 
           <article class="detail-content is-hidden" data-content="skills">
+
+              <h2>Skills</h2>
+              <p class="section-lead">C++ と DXライブラリを中心に、ゲーム制作に必要な実装を段階的に学習しています。</p>
+              
+              <div class="skill-card">              
+              
+                <h3>C++</h3>
+                <p>プレイヤー制御、シーン遷移、弾管理、状態遷移、当たり判定などの実装経験があります。</p>
+              
+              </div>
+              
+              <div class="skill-card">
+              
+                <h3>DXライブラリ</h3>
+                <p>2Dゲーム制作を中心に、描画、入力、UI、マップチップ、簡易AIを実装しています。</p>
+              
+              </div>
+              
+              <div class="skill-card">
+              
+                <h3>3D制作</h3>              
+                <p>3Dモデルの描画、空間制御、弾の管理、当たり判定を学習・制作中です。</p>
+              
+              </div>
+              
+              <div class="skill-card">
+              
+                <h3>Tools</h3>              
+                <p>Visual Studio、GIMP、HTML、CSS、JavaScript を使用しています。</p>
+              
+              </div>
+              
+              <h3 class="skills-subtitle">ツール使用歴</h3>
+              
+              <ul class="tool-list">
+              
+                <li><strong>Visual Studio</strong> — ゲーム制作のメイン環境</li>  
+                <li><strong>GIMP</strong> — 画像素材の作成・編集</li>              
+                <li><strong>HTML / CSS / JavaScript</strong> — 本ポートフォリオサイト</li>
+              
+              </ul>
             
-            <h2>Skills</h2>
-            <p>スキル（仮）</p>
-          
-          </article>
+            </article>
 
           <article class="detail-content is-hidden" data-content="works">
-          
+  
             <h2>Works</h2>
-            <p>制作実績（仮）</p>
-          
+            <p class="section-lead">
+
+              完成作品と制作中作品を掲載しています。担当範囲と使用技術がわかる構成にしています。
+            
+            </p>
+
+
+            <!-- 作品1 -->
+            <article class="work-card">
+  
+              <span class="work-status">動画あり / コードなし</span>
+  
+              <h3>シロのマジックトレーニング</h3>
+
+              <ul class="work-meta">
+                <li><strong>ジャンル：</strong>あと出し3すくみじゃんけんゲーム</li>
+                <li><strong>制作期間：</strong>3か月</li>
+                <li><strong>制作体制：</strong>個人制作</li>
+              </ul>
+
+              <p>                
+                私がゲーム制作を始めたきっかけの作品です。C++ と DXライブラリを使用して制作しました。
+                3すくみのルールロジック、シーン遷移、UI描画などを実装しました。
+                プレイ動画で内容を確認できます。
+                動画はプレイ動画のみですが、プレイ前に会話シーン、チュートリアルの実装も行いました。
+              </p>
+  
+              <!-- スクショを足すとき:
+  
+              <img class="work-thumb" src="assets/images/works/magic-training.png" alt="シロのマジックトレーニングの画面" />
+              
+              -->
+  
+              <div class="work-tags">
+  
+                <span>DXLib</span>
+                <span>C++</span>
+                <span>Visual Studio</span>
+                <span>GIMP</span>
+  
+              </div>
+  
+            </article>
+  
+            <!-- 作品2 -->
+  
+            <article class="work-card">
+  
+              <span class="work-status work-status--progress">制作中</span>
+  
+              <h3>2Dアクションゲーム（仮）</h3>
+              
+              <ul class="work-meta">
+                <li><strong>ジャンル：</strong>2Dアクションゲーム</li>
+                <li><strong>制作期間：</strong>3か月</li>
+                <li><strong>制作体制：</strong>個人制作</li>
+              </ul>
+
+              <p>
+                私がスプライトシートを用いたキャラクターの描画、箱型を用いた当たり判定などを使用してみたくて生まれた作品です。
+                こちらもC++ と DXライブラリを使用して制作しました。
+                キャラクターの制御、箱型を用いた当たり判定、敵AI、マップチップ描画などを実装しています。
+              </p>
+  
+              <div class="work-tags">
+                <span>DXLib</span>
+                <span>C++</span>
+                <span>Visual Studio</span>
+                <span>GIMP</span>
+              </div>
+  
+            </article>
+  
+            <!-- 作品3 -->
+            <article class="work-card">
+  
+              <span class="work-status work-status--progress">制作中</span>
+  
+              <h3>3Dシューティングゲーム（仮）</h3>
+              
+              <ul class="work-meta">
+                  <li><strong>ジャンル：</strong>3Dシューティングゲーム</li>
+                  <li><strong>制作期間：</strong>現在も制作中</li>
+                  <li><strong>制作体制：</strong>個人制作</li>
+              </ul>
+
+              <p>
+                私がDXライブラリを使用して3D空間を用いた作品が作りたくて生まれた作品です。
+                こちらもC++ と DXライブラリを使用して制作しました。
+                3Dモデル描画、空間制御、プレイヤー・敵の弾管理、当たり判定を中心に実装しています。
+              </p>
+  
+              <div class="work-tags">
+                <span>DXライブラリ</span>
+                <span>C++</span>
+                <span>Visual Studio</span>
+              </div>
+  
+            </article>
+
           </article>
 
-          <article class="detail-content is-hidden" data-content="timeline">
-          
-            <h2>Timeline</h2>
-            <p>経歴（仮）</p>
-          
-          </article>
 
           <article class="detail-content is-hidden" data-content="contact">
           
