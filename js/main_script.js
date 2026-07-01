@@ -1,5 +1,12 @@
+
 let currentScreen = 'top';
+
 const VALID_SCREENS = ['top', 'about', 'skills', 'works', 'contact'];
+
+const GITHUB_USERNAME = 'Takahashi-02';
+
+let reposLoaded = false;
+
 
 function showScreen(name) 
 {
@@ -54,6 +61,12 @@ function showScreen(name)
     btn.classList.toggle('is-active', active);
     });
 
+    // Contact 表示時に GitHub リポジトリを取得（1回だけ）
+    if (name === 'contact' && !reposLoaded) {
+        loadGitHubRepos();
+    }
+
+    
 }
 
 document.addEventListener('DOMContentLoaded', () => 
@@ -91,3 +104,55 @@ document.addEventListener('DOMContentLoaded', () =>
     }
 
 });
+
+async function loadGitHubRepos() 
+{
+
+  const repoList = document.querySelector('#repoList');
+  if (!repoList) return;
+
+  repoList.innerHTML = '<p class="repo-message">読み込み中…</p>';
+
+  try {
+    const url =
+      `https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}/repos` +
+      `?sort=updated&per_page=6`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error('GitHub API request failed');
+    }
+
+    const repos = await response.json();
+
+    if (!repos.length) {
+      repoList.innerHTML =
+        '<p class="repo-message">公開リポジトリが見つかりませんでした。</p>';
+      return;
+    }
+
+    repoList.innerHTML = repos
+      .map((repo) => {
+        const desc = repo.description || '説明文は未設定です。';
+        const lang = repo.language || '言語不明';
+        const updated = new Date(repo.updated_at).toLocaleDateString('ja-JP');
+
+        return `
+          <article class="repo-item">
+            <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a>
+            <p>${desc}</p>
+            <small>${lang} / 更新: ${updated}</small>
+          </article>
+        `;
+      })
+      .join('');
+
+    reposLoaded = true;
+
+  } catch (error) {
+    repoList.innerHTML =
+      '<p class="repo-message">リポジトリを取得できませんでした。しばらくしてから再度お試しください。</p>';
+    console.warn('GitHub API error:', error);
+  }
+}

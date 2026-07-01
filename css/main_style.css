@@ -456,3 +456,187 @@ body.is-detail-open .scene-character
   line-height: 1.7;
   opacity: 0.95;
 }
+
+/* ========================================
+   Contact 画面
+   ======================================== */
+.contact-card {
+  margin: 16px 0;
+  padding: 14px 16px;
+  border: 2px solid #fff;
+}
+
+.contact-label {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.contact-mail,
+.contact-link {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #000;
+  border: 2px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.contact-mail:hover,
+.contact-link:hover {
+  background: #fff;
+  color: #000;
+}
+
+.contact-note {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.contact-note code {
+  color: #fff;
+}
+
+/* ========================================
+   GitHub リポジトリ一覧
+   ======================================== */
+.repo-list {
+  margin-top: 8px;
+}
+
+.repo-message {
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.repo-item {
+  margin: 12px 0;
+  padding: 12px 14px;
+  border: 2px solid #fff;
+}
+
+.repo-item a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.repo-item a:hover {
+  opacity: 0.8;
+}
+
+.repo-item p {
+  margin: 8px 0 4px;
+  line-height: 1.6;
+}
+
+.repo-item small {
+  opacity: 0.85;
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   Phase 5: レスポンシブ
+   方針: キャラは小さくして残す
+   ======================================== */
+
+/* タブレット以下（768px） */
+@media (max-width: 768px) {
+
+  /* キャラ: 中央寄せ・少し小さく */
+  .scene-character {
+    left: 50%;
+    bottom: 10%;
+    width: min(20vw, 90px);
+  }
+
+  /* 詳細時: 右下に小さく */
+  body.is-detail-open .scene-character {
+    right: 4%;
+    bottom: 10%;
+    width: min(18vw, 72px);
+  }
+
+  /* コマンドパネル */
+  .command-panel {
+    width: min(88vw, 300px);
+    right: 6%;
+    bottom: 18%;
+    padding: 20px;
+  }
+
+  /* 詳細パネル: キャラ分の固定余白をやめる */
+  .detail-panel {
+    width: 92%;
+    left: 4%;
+    top: 14%;
+    height: min(68vh, 520px);
+  }
+
+  /* ジャンプバー */
+  .jump-bar {
+    top: 1%;
+    right: 1%;
+    left: 1%;
+    gap: 4px;
+    padding: 6px 8px;
+  }
+
+  .jump-item {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* スマホ（480px） */
+@media (max-width: 480px) {
+
+  .scene-character {
+    left: 42%;
+    bottom: 12%;
+    width: min(24vw, 64px);
+  }
+
+  body.is-detail-open .scene-character {
+    right: 3%;
+    bottom: 12%;
+    width: min(22vw, 56px);
+  }
+
+  .command-panel {
+    width: 94%;
+    right: 3%;
+    left: 3%;
+    bottom: 14%;
+    padding: 16px;
+  }
+
+  .command-item {
+    padding: 12px 14px;
+    margin: 8px 0;
+  }
+
+  .command-item span {
+    font-size: 1rem;
+  }
+
+  .detail-panel {
+    width: 96%;
+    left: 2%;
+    top: 16%;
+    height: min(65vh, 480px);
+    padding: 14px 16px;
+  }
+
+  .jump-bar {
+    justify-content: center;
+  }
+
+  .jump-item {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+  }
+}
