@@ -539,9 +539,27 @@ body.is-detail-open .scene-character
 }
 
 /* ========================================
-   Phase 5: レスポンシブ
-   方針: キャラは小さくして残す
+   下記レスポンシブ対応
    ======================================== */
+   /*少し小さいPC用(1200px)*/
+   @media (max-width: 1200px) {
+  /* キャラを少し下げる（浮き対策） */
+  .scene-character {
+    left: 60%;
+    bottom: 5%;
+  }
+ 
+
+  body.is-detail-open .scene-character {
+    bottom: 5%;
+  }
+
+  /* 必要なら床も微調整（草のラインを合わせる） */
+  .scene-floor {
+    transform: translateY(14%);  /* 16% → 14% など。効きすぎたら戻す */
+  }
+}
+
 
 /* タブレット以下（768px） */
 @media (max-width: 768px) {
@@ -549,23 +567,39 @@ body.is-detail-open .scene-character
   /* キャラ: 中央寄せ・少し小さく */
   .scene-character {
     left: 50%;
-    bottom: 10%;
+    bottom: 4%;
     width: min(20vw, 90px);
+    transform: translateX(-50%);
   }
 
   /* 詳細時: 右下に小さく */
   body.is-detail-open .scene-character {
     right: 4%;
-    bottom: 10%;
+    bottom: 4%;
     width: min(18vw, 72px);
   }
 
   /* コマンドパネル */
   .command-panel {
-    width: min(88vw, 300px);
+    width: min(72vw, 260px);
     right: 6%;
     bottom: 18%;
-    padding: 20px;
+    padding: 14px;
+  }
+
+  .panel-title {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  .command-item {
+    margin: 6px 0;
+    padding: 10px 12px;
+  }
+  .command-item span {
+    font-size: 1rem;
+  }
+  .command-item small {
+    font-size: 0.8rem;
   }
 
   /* 詳細パネル: キャラ分の固定余白をやめる */
@@ -580,7 +614,9 @@ body.is-detail-open .scene-character
   .jump-bar {
     top: 1%;
     right: 1%;
-    left: 1%;
+    left: auto;
+    width: auto;
+    justify-content: flex-end;
     gap: 4px;
     padding: 6px 8px;
   }
@@ -596,13 +632,13 @@ body.is-detail-open .scene-character
 
   .scene-character {
     left: 42%;
-    bottom: 12%;
+    bottom: 1%;
     width: min(24vw, 64px);
   }
 
   body.is-detail-open .scene-character {
     right: 3%;
-    bottom: 12%;
+    bottom: 1%;
     width: min(22vw, 56px);
   }
 
