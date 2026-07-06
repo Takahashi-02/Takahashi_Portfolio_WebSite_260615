@@ -21,7 +21,7 @@
   <!-- Google Fonts の DotGothic16 を読み込む トップページのコマンドボタン用 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
   
 
 
@@ -39,8 +39,8 @@
       <!-- レイヤー0: 空（div + CSS の background-image） -->
       <div class="scene-bg" aria-hidden="true">
         <div class="scene-bg__track">
-          <img class="scene-bg__tile" src="assets/images/bg.png" alt="" />
-          <img class="scene-bg__tile" src="assets/images/bg.png" alt="" />
+          <img class="scene-bg__tile" src="assets/images/bg_1.png" alt="" />
+          <img class="scene-bg__tile" src="assets/images/bg_1.png" alt="" />
         </div>
       </div>
 
@@ -73,6 +73,11 @@
         
       </aside>
       
+      <!-- レイヤー4: 戻るボタン（詳細時のみ・左上固定） -->
+      <button type="button" class="btn-back is-hidden" aria-label="TOP に戻る">戻る</button>
+
+
+
       <!-- レイヤー4: ジャンプバー 詳細時(Aboutなどの表示時)のみ表示するバー -->
       <nav class="jump-bar is-hidden" aria-label="ページジャンプ">
         <button type="button" class="jump-item" data-screen="top">      TOP       </button>
@@ -84,186 +89,119 @@
 
       <!-- レイヤー5: 大詳細パネル（オレンジ枠イメージ・初期は非表示） -->
       <section class="detail-panel is-hidden" aria-live="polite">
-        <button type="button" class="btn-back">戻る</button>
-
-        <div class="detail-panel__body">
         
-          <article class="detail-content" data-content="about">
 
-  <h2>About</h2>
+    <div class="detail-panel__body">
+        
+  <article class="detail-content" data-content="about">
 
   <div class="about-hero">
 
-    <!-- 左: 写真 + SNS -->
-    <div class="about-profile">
+    <p class="about-name">髙橋 勇喜(Yuki Takahashi)</p>
+    <h2 class="about-page-title">About</h2>
 
+    <div class="about-profile">
       <figure class="about-photo">
-        <img src="assets/images/2025_1116_0138.jpg" alt="髙橋勇喜のプロフィール写真" width="320" height="400"/>
+        <img src="assets/images/2025_1116_0138.jpg" alt="髙橋勇喜のプロフィール写真" width="320" height="400" />
       </figure>
 
       <div class="about-social">
-        <a class="about-social__link"
-           href="https://github.com/Takahashi-02" 
-           target="_blank" rel="noopener noreferrer" 
-           aria-label="GitHub プロフィールを開く">
-
-          <img class="about-social__icon"
-              src="assets/images/GitHub_Invertocat_White.png"
-              alt=""
-              width="22"
-              height="22"/>
-
+        <a class="about-social__link" href="https://github.com/Takahashi-02" target="_blank" rel="noopener noreferrer" aria-label="GitHub プロフィールを開く">
+          <img class="about-social__icon" src="assets/images/GitHub_Invertocat_White.png" alt="" width="22" height="22" />
         </a>
-
-        <a  class="about-social__link"
-            href="https://x.com/tkhs_gmprog"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X のプロフィールを開く"
-          >
-          
-          <img  class="about-social__icon"
-                src="assets/images/logo-white.png"
-                alt=""
-                width="22"
-                height="22"
-          />
-
+        <a class="about-social__link" href="https://x.com/tkhs_gmprog" target="_blank" rel="noopener noreferrer" aria-label="X のプロフィールを開く">
+          <img class="about-social__icon" src="assets/images/logo-white.png" alt="" width="22" height="22" />
         </a>
-
       </div>
     </div>
 
-    <!-- 右: 自己紹介 + ゲージ -->
     <div class="about-summary">
-
       <h3 class="about-summary__heading">自己紹介</h3>
-      
-      <ul class="about-summary__points">
-        
-        <li>髙橋 勇喜と申します。</li>
-        <li>ゲームプログラマ・エンジニア職を志望しており、</li>
-        <li>現在はC++ と DXライブラリを中心に 2D / 3D ゲーム制作に取り組んでいます。</li>
-        <!-- <li>処理の流れが追いやすい設計と、仕組みからの理解を大切にしています。</li> -->
-      
-      </ul>
+      <p class="about-summary__text">
+        2000年生まれ、東京都出身。ゲームエンジニア志望の学生です。<br>
+        現在は C++ と DXライブラリを中心に、ゲーム制作をしながら様々な技術を学んでいます。<br>
+      </p>
 
       <h3 class="about-gauges__heading">直近使用ツール</h3>
-      
       <p class="about-gauges__note">※ ゲージは使用歴（月数）の目安です。詳細は Skills を参照。</p>
 
       <div class="tool-gauge">
-      
         <div class="tool-gauge__label">
           <span class="tool-gauge__name">C++</span>
           <span class="tool-gauge__months">24ヶ月</span>
         </div>
-      
         <div class="tool-gauge__track">
           <div class="tool-gauge__fill" style="--rate: 100%"></div>
         </div>
-      
       </div>
 
       <div class="tool-gauge">
-      
         <div class="tool-gauge__label">
           <span class="tool-gauge__name">DXライブラリ</span>
           <span class="tool-gauge__months">20ヶ月</span>
         </div>
-
         <div class="tool-gauge__track">
           <div class="tool-gauge__fill" style="--rate: 83%"></div>
         </div>
-
       </div>
 
       <div class="tool-gauge">
-
         <div class="tool-gauge__label">
           <span class="tool-gauge__name">Unity / Unreal Engine</span>
           <span class="tool-gauge__months">6ヶ月</span>
         </div>
-
         <div class="tool-gauge__track">
           <div class="tool-gauge__fill tool-gauge__fill--learning" style="--rate: 25%"></div>
         </div>
-
       </div>
 
       <div class="tool-gauge">
-
         <div class="tool-gauge__label">
           <span class="tool-gauge__name">その他ツール（GIMP 等）</span>
           <span class="tool-gauge__months">12ヶ月</span>
         </div>
-
         <div class="tool-gauge__track">
           <div class="tool-gauge__fill" style="--rate: 50%"></div>
         </div>
-
       </div>
-
     </div>
 
   </div>
 
   <details class="about-more">
-
     <summary class="btn-more">MORE</summary>
 
     <section class="about-section">
-
       <h3>制作について</h3>
-
       <p>
         技術だけでなく、処理の流れを追いやすい設計や、
         仕組みから理解することを大切にしています。
         エンジニア以外でも追えるコメント、図式化、原因の根元確認、
         理解度に合った設計選択を意識して制作に取り組んでいます。
       </p>
-
     </section>
 
     <section class="about-section">
-
       <h3>Biography</h3>
-
       <p class="section-lead">これまでの歩み</p>
 
       <div class="bio-card">
-
         <h4>Step 01</h4>
         <p>C++とDXライブラリで2Dゲーム制作を開始しました。</p>
-
       </div>
-
       <div class="bio-card">
-
         <h4>Step 02</h4>
-
         <p>シーン遷移、UI、ルールロジック、プレイヤー制御を実装しました。</p>
-
       </div>
-
       <div class="bio-card">
-
         <h4>Step 03</h4>
-
         <p>当たり判定、敵AI、マップチップ描画などを追加しています。</p>
-
       </div>
-
       <div class="bio-card">
-
         <h4>Step 04</h4>
-
         <p>3Dシューティング制作を通じて、3D空間とモデル描画を学習中です。</p>
-
       </div>
-
     </section>
-
   </details>
 
 </article>

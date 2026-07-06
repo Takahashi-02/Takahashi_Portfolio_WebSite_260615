@@ -51,6 +51,12 @@ function applyScreenChange(name) {
   if (name === 'contact' && !reposLoaded) {
     loadGitHubRepos();
   }
+
+  const backButton = document.querySelector('.btn-back');
+  
+  if (backButton) {
+  backButton.classList.toggle('is-hidden', isTop);
+  }
 }
 
 async function showScreen(name) {
@@ -113,7 +119,7 @@ async function showScreen(name) {
 
       await wait(FADE_MS);
     }
-    
+
   } 
   
   finally {

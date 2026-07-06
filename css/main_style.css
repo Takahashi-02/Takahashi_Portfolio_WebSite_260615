@@ -99,6 +99,10 @@ body
    ======================================== */
 :root 
 {
+  
+  --font-rpg: "DotGothic16", sans-serif;
+  --font-body: "Noto Sans JP", sans-serif;
+
   --main:         #FFFFFF;
   --sub:          #FFFFFF;
   --text:         #FFFFFF;
@@ -119,8 +123,8 @@ body
 
 body 
 {
-  font-family:  "DotGothic16", sans-serif;
-  color:        var(--text);
+  font-family: var(--font-rpg);
+  color: var(--text);
 }
 
 .panel-title 
@@ -268,7 +272,7 @@ body.is-detail-open .scene-character
    ======================================== */
 .jump-bar 
 {
-   position: absolute;
+  position: absolute;
   top: 2%;              /* 上の余白をなくす（2% → 0） */
   right: 2%;            /* 右端に寄せる */
   left: auto;          /* 左の指定を解除（重要） */
@@ -340,6 +344,13 @@ body.is-detail-open .scene-character
   visibility: visible;
   pointer-events: auto;
   transition: opacity 0.25s ease, visibility 0.25s ease;
+
+  font-family: var(--font-body);
+  line-height: 1.75;
+
+  overflow: hidden;          /* パネル自体はスクロールしない */
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -351,6 +362,9 @@ body.is-detail-open .scene-character
 }
 
 .detail-panel__body {
+  flex: 1;
+  min-height: 0;             /* flex 子のスクロールに必須 */
+  overflow-y: auto;
   transition: opacity 0.2s ease;
 }
 
@@ -358,19 +372,27 @@ body.is-detail-open .scene-character
   opacity: 0;
 }
 
-.btn-back 
-{
-  margin-bottom: 12px;
-  padding: 8px 16px;
-  background: #000;
+.btn-back {
+  position: absolute;
+  top: 6%;
+  left: 2%;
+  z-index: 6;              /* ジャンプバー(5)より手前 */
+  padding: 8px 12px;
+  background: var(--panel-strong);
+  backdrop-filter: var(--panel-blur);
+  -webkit-backdrop-filter: var(--panel-blur);
   border: 2px solid #fff;
   color: #fff;
   font: inherit;
   cursor: pointer;
 }
 
-.btn-back:hover 
-{
+.btn-back.is-hidden {
+  display: none;
+}
+
+.btn-back:hover,
+.btn-back:focus-visible {
   background: #fff;
   color: #000;
 }
@@ -388,15 +410,45 @@ body.is-detail-open .scene-character
 .about-hero {
   display: grid;
   grid-template-columns: minmax(140px, 32%) 1fr;
-  gap: 20px;
+  grid-template-areas:
+    "name   title"
+    "profile summary";
+  gap: 12px 20px;
   align-items: start;
   margin-bottom: 20px;
 }
 
+/* 赤枠: 名前 */
+.about-name {
+  grid-area: name;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding-bottom: 4px;
+}
+
+/* 緑枠: About */
+.about-page-title {
+  grid-area: title;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding-bottom: 4px;
+}
+
 .about-profile {
+  grid-area: profile;
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.about-summary {
+  grid-area: summary;
 }
 
 .about-photo {
@@ -457,10 +509,10 @@ body.is-detail-open .scene-character
   padding-bottom: 4px;
 }
 
-.about-summary__points {
+.about-summary__text {
   margin: 0 0 16px;
-  padding-left: 1.2em;
-  line-height: 1.7;
+  line-height: 1.75;
+  font-size: 0.95rem;
 }
 
 .about-gauges__note {
@@ -550,6 +602,13 @@ body.is-detail-open .scene-character
     max-width: 240px;
     margin: 0 auto;
     width: 100%;
+  }
+
+  .btn-back {
+    top: 1%;
+    left: 1%;
+    padding: 6px 10px;
+    font-size: 0.85rem;
   }
 }
 
@@ -764,6 +823,27 @@ body.is-detail-open .scene-character
     font-size: 0.8rem;
   }
 
+  .about-hero {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "name"
+      "title"
+      "profile"
+      "summary";
+  }
+
+  .about-profile {
+    grid-area: profile;   /* ← 追加 */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .about-summary {
+    grid-area: summary;   /* ← 追加 */
+  }
+
+  
   /* 詳細パネル: キャラ分の固定余白をやめる */
   .detail-panel {
     width: 92%;
@@ -802,6 +882,15 @@ body.is-detail-open .scene-character
     right: 3%;
     bottom: 1%;
     width: min(22vw, 56px);
+  }
+
+  .about-hero {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "name"
+      "title"
+      "profile"
+      "summary";
   }
 
   .command-panel {
