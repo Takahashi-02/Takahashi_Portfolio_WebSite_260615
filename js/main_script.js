@@ -100,12 +100,23 @@ async function showScreen(name) {
     currentScreen = name;
     applyScreenChange(name);
 
-    // 新しいパネルをフェードイン
     if (!nextIsTop && detailPanel) {
-      detailPanel.classList.remove('is-hidden');
+      if (prevIsTop) {
+        // TOP → 詳細: いったん非表示にしてからフェードイン
+        detailPanel.classList.add('is-hidden');
+        void detailPanel.offsetWidth; // reflow（ブラウザに状態変更を認識させる）
+        detailPanel.classList.remove('is-hidden');
+      }
+      else {
+        detailPanel.classList.remove('is-hidden');
+      } 
+
       await wait(FADE_MS);
     }
-  } finally {
+    
+  } 
+  
+  finally {
     isTransitioning = false;
   }
 }
