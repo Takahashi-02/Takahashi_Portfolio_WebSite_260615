@@ -676,3 +676,21 @@ body.is-detail-open .scene-character
     font-size: 0.8rem;
   }
 }
+
+/* ========================================
+   アクセシビリティ: 動きを減らす設定のユーザー向け
+   OS の「視差効果を減らす」等が ON のとき背景スクロールを止める
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .scene-bg__track {
+    animation: none;
+  }
+
+  .command-item,
+  .jump-item,
+  .scene-character,
+  body.is-detail-open .scene-character {
+    transition: none;
+  }
+}
+
