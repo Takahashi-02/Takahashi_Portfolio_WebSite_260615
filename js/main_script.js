@@ -1,7 +1,10 @@
 
 let currentScreen = 'top';
 
-const VALID_SCREENS = ['top', 'about', 'about-more', 'skills', 'works', 'contact'];
+const VALID_SCREENS = [
+  'top', 'about', 'about-more', 'about-value-1',
+  'skills', 'works', 'contact'
+];
 
 const GITHUB_USERNAME = 'Takahashi-02';
 
@@ -45,9 +48,12 @@ function applyScreenChange(name) {
   document.querySelectorAll('.jump-item[data-screen]').forEach((btn) => {
     const target = btn.getAttribute('data-screen');
     
-    const active = isTop
-    ? (target === 'top')
-    : (target === name || (name === 'about-more' && target === 'about'));
+    const isAboutFamily =
+    name === 'about' ||
+    name === 'about-more' ||
+    name === 'about-value-1';
+
+    const active = isTop ? (target === 'top') : (target === name || (isAboutFamily && target === 'about'));
 
     btn.classList.toggle('is-active', active);
   });
@@ -66,6 +72,7 @@ function applyScreenChange(name) {
   
   if (panelBody) {
     panelBody.classList.toggle('is-about-main', name === 'about');
+    panelBody.scrollTop = 0;
   }
 
 }
@@ -152,28 +159,27 @@ document.addEventListener('DOMContentLoaded', () =>
 
   // ジャンプバー（詳細用・TOP 含む）
   document.querySelectorAll('.jump-item[data-screen]').forEach((button) => 
-    {
+  {
     
     button.addEventListener('click', () => 
     {
       showScreen(button.getAttribute('data-screen'));
     });
 
-    });
+  });
 
     // 戻るボタン
     const backButton = document.querySelector('.btn-back');
   
     if (backButton) 
     {
-      backButton.addEventListener('click', () => 
+     backButton.addEventListener('click', () => 
       {
-        if (currentScreen === 'about-more') 
-        {
+        if (currentScreen === 'about-value-1') {
+          showScreen('about-more');
+        } else if (currentScreen === 'about-more') {
           showScreen('about');
-        }
-        else 
-        {
+        } else {
           showScreen('top');
         }
       });
@@ -186,6 +192,14 @@ document.addEventListener('DOMContentLoaded', () =>
         showScreen(button.getAttribute('data-screen'));
       });
 
+    });
+
+    document.querySelectorAll('.about-value-btn[data-screen]').forEach((button) => 
+    {
+      button.addEventListener('click', () => 
+      {
+        showScreen(button.getAttribute('data-screen'));
+      });
     });
 
 });

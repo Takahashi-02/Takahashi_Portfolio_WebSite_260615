@@ -583,6 +583,51 @@ body.is-detail-open .scene-character
   cursor: pointer;
 }
 
+.about-values__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 16px 24px;
+  margin: 20px auto;
+  max-width: 520px;
+}
+
+
+.about-value-btn--1 {
+  grid-column: 1 / -1;
+}
+
+.about-value-btn {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: min(42vw, 160px);
+  height: min(42vw, 160px);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: #000;
+  color: #fff;
+  font: inherit;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  padding: 12px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.about-value-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.about-value-btn:not(:disabled):hover,
+.about-value-btn:not(:disabled):focus-visible {
+  background: #fff;
+  color: #000;
+}
+
 
 .about-section {
   margin-bottom: 24px;

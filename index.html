@@ -88,108 +88,122 @@
       </nav>
 
       <!-- レイヤー5: 大詳細パネル（オレンジ枠イメージ・初期は非表示） -->
-      <section class="detail-panel is-hidden" aria-live="polite">
+    <section class="detail-panel is-hidden" aria-live="polite">
         
 
-    <div class="detail-panel__body">
+  <div class="detail-panel__body">
         
   <article class="detail-content" data-content="about">
 
-  <div class="about-hero">
+    <div class="about-hero">
 
-    <p class="about-name">髙橋 勇喜(Yuki Takahashi)</p>
-    <h2 class="about-page-title">About</h2>
+      <p class="about-name">髙橋 勇喜(Yuki Takahashi)</p>
+      <h2 class="about-page-title">About</h2>
 
-    <div class="about-profile">
-      <figure class="about-photo">
-        <img src="assets/images/2025_1116_0138.jpg" alt="髙橋勇喜のプロフィール写真" width="320" height="400" />
-      </figure>
+      <div class="about-profile">
+        <figure class="about-photo">
+          <img src="assets/images/2025_1116_0138.jpg" alt="髙橋勇喜のプロフィール写真" width="320" height="400" />
+        </figure>
 
-      <div class="about-social">
-        <a class="about-social__link" href="https://github.com/Takahashi-02" target="_blank" rel="noopener noreferrer" aria-label="GitHub プロフィールを開く">
-          <img class="about-social__icon" src="assets/images/GitHub_Invertocat_White.png" alt="" width="22" height="22" />
-        </a>
-        <a class="about-social__link" href="https://x.com/tkhs_gmprog" target="_blank" rel="noopener noreferrer" aria-label="X のプロフィールを開く">
-          <img class="about-social__icon" src="assets/images/logo-white.png" alt="" width="22" height="22" />
-        </a>
+        <div class="about-social">
+          <a class="about-social__link" href="https://github.com/Takahashi-02" target="_blank" rel="noopener noreferrer" aria-label="GitHub プロフィールを開く">
+            <img class="about-social__icon" src="assets/images/GitHub_Invertocat_White.png" alt="" width="22" height="22" />
+          </a>
+          <a class="about-social__link" href="https://x.com/tkhs_gmprog" target="_blank" rel="noopener noreferrer" aria-label="X のプロフィールを開く">
+            <img class="about-social__icon" src="assets/images/logo-white.png" alt="" width="22" height="22" />
+          </a>
+        </div>
       </div>
+
+      <div class="about-summary">
+        <h3 class="about-summary__heading">自己紹介</h3>
+        <p class="about-summary__text">
+          2000年生まれ、東京都出身。ゲームエンジニア志望の学生です。<br>
+          現在は C++ と DXライブラリを中心に、ゲーム制作をしながら様々な技術を学んでいます。<br>
+        </p>
+
+        <h3 class="about-gauges__heading">直近使用ツール</h3>
+        <p class="about-gauges__note">※ ゲージは使用歴（月数）の目安です。詳細は Skills を参照。</p>
+
+        <div class="tool-gauge">
+          <div class="tool-gauge__label">
+            <span class="tool-gauge__name">C++</span>
+            <span class="tool-gauge__months">24ヶ月</span>
+          </div>
+          <div class="tool-gauge__track">
+            <div class="tool-gauge__fill" style="--rate: 100%"></div>
+          </div>
+        </div>
+
+        <div class="tool-gauge">
+          <div class="tool-gauge__label">
+            <span class="tool-gauge__name">DXライブラリ</span>
+            <span class="tool-gauge__months">20ヶ月</span>
+          </div>
+          <div class="tool-gauge__track">
+            <div class="tool-gauge__fill" style="--rate: 83%"></div>
+          </div>
+        </div>
+
+        <div class="tool-gauge">
+          <div class="tool-gauge__label">
+            <span class="tool-gauge__name">Unity / Unreal Engine</span>
+            <span class="tool-gauge__months">6ヶ月</span>
+          </div>
+          <div class="tool-gauge__track">
+            <div class="tool-gauge__fill tool-gauge__fill--learning" style="--rate: 25%"></div>
+          </div>
+        </div>
+
+        <div class="tool-gauge">
+          <div class="tool-gauge__label">
+            <span class="tool-gauge__name">その他ツール（GIMP 等）</span>
+            <span class="tool-gauge__months">12ヶ月</span>
+          </div>
+          <div class="tool-gauge__track">
+            <div class="tool-gauge__fill" style="--rate: 50%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-hero__more">
+      <button type="button" class="btn-more" data-screen="about-more">MORE</button>
+      </div>
+
     </div>
 
-    <div class="about-summary">
-      <h3 class="about-summary__heading">自己紹介</h3>
-      <p class="about-summary__text">
-        2000年生まれ、東京都出身。ゲームエンジニア志望の学生です。<br>
-        現在は C++ と DXライブラリを中心に、ゲーム制作をしながら様々な技術を学んでいます。<br>
-      </p>
-
-      <h3 class="about-gauges__heading">直近使用ツール</h3>
-      <p class="about-gauges__note">※ ゲージは使用歴（月数）の目安です。詳細は Skills を参照。</p>
-
-      <div class="tool-gauge">
-        <div class="tool-gauge__label">
-          <span class="tool-gauge__name">C++</span>
-          <span class="tool-gauge__months">24ヶ月</span>
-        </div>
-        <div class="tool-gauge__track">
-          <div class="tool-gauge__fill" style="--rate: 100%"></div>
-        </div>
-      </div>
-
-      <div class="tool-gauge">
-        <div class="tool-gauge__label">
-          <span class="tool-gauge__name">DXライブラリ</span>
-          <span class="tool-gauge__months">20ヶ月</span>
-        </div>
-        <div class="tool-gauge__track">
-          <div class="tool-gauge__fill" style="--rate: 83%"></div>
-        </div>
-      </div>
-
-      <div class="tool-gauge">
-        <div class="tool-gauge__label">
-          <span class="tool-gauge__name">Unity / Unreal Engine</span>
-          <span class="tool-gauge__months">6ヶ月</span>
-        </div>
-        <div class="tool-gauge__track">
-          <div class="tool-gauge__fill tool-gauge__fill--learning" style="--rate: 25%"></div>
-        </div>
-      </div>
-
-      <div class="tool-gauge">
-        <div class="tool-gauge__label">
-          <span class="tool-gauge__name">その他ツール（GIMP 等）</span>
-          <span class="tool-gauge__months">12ヶ月</span>
-        </div>
-        <div class="tool-gauge__track">
-          <div class="tool-gauge__fill" style="--rate: 50%"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="about-hero__more">
-    <button type="button" class="btn-more" data-screen="about-more">MORE</button>
-    </div>
-
-  </div>
-
-</article>
+  </article>
 
   <article class="detail-content is-hidden" data-content="about-more">
-  
-    <h2 class="about-page-title">About</h2>
     
-    <p class="section-lead">制作について・経歴</p>
+    <section class="about-section about-values">
+        
+      <h3>制作で意識していること</h3>
+        
+        <p class="about-values__lead">
+          ３つの要素に切り分けております。<br>
+          クリックでその要素の詳細が閲覧できます。
+        </p>
 
-    <section class="about-section">
+        <div class="about-values__grid" role="group" aria-label="制作で意識していること">
+        
+          <button type="button" class="about-value-btn about-value-btn--1"
+            data-screen="about-value-1">
+            仕組みから理解することを重視
+          </button>
 
-      <h3>制作について</h3>
-
-      <p>
-        技術だけでなく、処理の流れを追いやすい設計や、
-        仕組みから理解することを大切にしています。
-        エンジニア以外でも追えるコメント、図式化、原因の根元確認、
-        理解度に合った設計選択を意識して制作に取り組んでいます。 
-      </p>
+          <!-- ②③は見た目のみ（今回は遷移しない） -->
+          <button type="button" class="about-value-btn about-value-btn--2" disabled
+            aria-disabled="true">
+            コードの理解と保守性を意識した設計
+          </button>
+        
+          <button type="button" class="about-value-btn about-value-btn--3" disabled
+            aria-disabled="true">
+            他者へ伝わるコードを意識
+          </button>
+        
+        </div>
 
     </section>
 
@@ -198,39 +212,77 @@
       <h3>Biography</h3>
         <p class="section-lead">これまでの歩み</p>
 
-        <div class="bio-card">
-            <h4>大学生時代</h4>
-            <p>
-              大学では心理学を専攻しており、児童や人間の心情心理を知るために主に対人心理、発達心理学を学んでいました。
-              大学以外では、ボランティアサークルで副会長を務め児童館での子どもたちの遊びのサポートや、大学祭の運営、
-              治安向上のためのゴミ拾い活動などを行っていました。
-              また、発達心理学の知識を活かして保育園でのアルバイトなども経験してきました。
-            </p>
-        </div>
-        
-        <div class="bio-card">
-            <h4>社会人時代</h4>
-            <p>
-              大学卒業後、人に関わる仕事をしたいと考え、社会人になってからはドラッグストアで正社員として勤務していました。
-              店舗では登録販売者資格の取得後、副店長として医薬品の接客販売、薬や在庫の管理、新入社員のOJT指導などを行っておりました。
-              この時、人が何に困っており、どのように解決していくのかを考える力を身につけることができました。
-            </p>
-        </div>
-        
-        <div class="bio-card">
-            <h4>現在</h4>
-            <p>
-              子どもの頃からの夢であったゲーム制作に関わる仕事をしたいと考え、現在はゲームエンジニアを目指して学習・制作を行っています。
-              慣れないことも多くありますが、ゲーム制作を通して学んだことを活かし、
-              より良い作品を作れるように日々振り返り、改善を行い、次の制作に活かすことを意識して取り組んでいます。
-              また、今年から新1年生のティーチングアシスタントを担当させていただいております。
-              社会人時代に培った人と関わる力を活かし、1年生のの学習をサポートすることにやりがいを感じています。
-            </p>
-        </div>
-        
+          <div class="bio-card">
+              <h4>大学生時代</h4>
+              <p>
+                大学では心理学を専攻しており、児童や人間の心情心理を知るために主に対人心理、発達心理学を学んでいました。<br>
+                大学以外では、ボランティアサークルで副会長を務め児童館での子どもたちの遊びのサポートや、大学祭の運営、<br>
+                治安向上のためのゴミ拾い活動などを行っていました。<br>
+                また、発達心理学の知識を活かして保育園でのアルバイトなども経験してきました。
+              </p>
+          </div>
+          
+          <div class="bio-card">
+              <h4>社会人時代</h4>
+              <p>
+                大学卒業後、人に関わる仕事をしたいと考え、社会人になってからはドラッグストアで正社員として勤務していました。<br>
+                店舗では登録販売者資格の取得後、副店長として医薬品の接客販売、薬や在庫の管理、新入社員のOJT指導などを行っておりました。<br>
+                この時、人が何に困っており、どのように解決していくのかを考える力を身につけることができました。
+              </p>
+          </div>
+          
+          <div class="bio-card">
+              <h4>現在</h4>
+              <p>
+                子どもの頃からの夢であったゲーム制作に関わる仕事をしたいと考え、現在はゲームエンジニアを目指して学習・制作を行っています。<br>
+                慣れないことも多くありますが、ゲーム制作を通して学んだことを活かし、<br>
+                より良い作品を作れるように日々振り返り、改善を行い、次の制作に活かすことを意識して取り組んでいます。<br>
+                また、今年から新1年生のティーチングアシスタントを担当させていただいております。<br>
+                社会人時代に培った人と関わる力を活かし、1年生のの学習をサポートすることにやりがいを感じています。
+              </p>
+          </div>
+          
     </section>
 
   </article>
+
+  <article class="detail-content is-hidden" data-content="about-value-1">
+
+    <h2>仕組みから理解することを重視</h2>
+    
+    <ul class="about-value-detail">
+    
+      <li>
+        機能や処理を利用する際はなるべく「とりあえず使う」のではなく、
+        「なぜ動くのか」を意識しています。
+      </li>
+    
+      <li>
+        またエラーが発生した際も、発生した箇所だけではなく、
+        その周りの処理の中身も確認するようにしています。
+      </li>
+    
+    </ul>
+  
+  </article>
+
+  <!--要素２と３は１が完成した後に実装予定 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
