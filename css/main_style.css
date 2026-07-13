@@ -598,7 +598,7 @@ body.is-detail-open .scene-character
 }
 
 .about-value-btn {
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -999,3 +999,33 @@ body.is-detail-open .scene-character
   }
 }
 
+.about-value-layout {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  gap: 8px 12px;
+  min-height: 100%;
+}
+
+.about-value-body {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.about-value-nav {
+  width: 44px;
+  height: 44px;
+  border: 2px solid #fff;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.about-value-nav.is-placeholder {
+  visibility: hidden;
+  pointer-events: none;
+}

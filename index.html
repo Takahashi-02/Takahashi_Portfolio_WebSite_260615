@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://takahashi-02.github.io/takahashi_portfolio/" />
   <meta property="og:image" content="https://takahashi-02.github.io/takahashi_portfolio/assets/images/character.png" />
 
-<meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- css/main_style.css を読み込む（index.html と同じ階層の css フォルダ） -->
   <link rel="stylesheet" href="css/main_style.css" />
@@ -23,6 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
   
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
 
 
@@ -187,19 +189,15 @@
 
         <div class="about-values__grid" role="group" aria-label="制作で意識していること">
         
-          <button type="button" class="about-value-btn about-value-btn--1"
-            data-screen="about-value-1">
+          <button type="button" class="about-value-btn about-value-btn--1" data-screen="about-value-1">
             仕組みから理解することを重視
           </button>
 
-          <!-- ②③は見た目のみ（今回は遷移しない） -->
-          <button type="button" class="about-value-btn about-value-btn--2" disabled
-            aria-disabled="true">
+          <button type="button" class="about-value-btn about-value-btn--2" data-screen="about-value-2">
             コードの理解と保守性を意識した設計
           </button>
         
-          <button type="button" class="about-value-btn about-value-btn--3" disabled
-            aria-disabled="true">
+          <button type="button" class="about-value-btn about-value-btn--3" data-screen="about-value-3">
             他者へ伝わるコードを意識
           </button>
         
@@ -248,42 +246,187 @@
 
   <article class="detail-content is-hidden" data-content="about-value-1">
 
-    <h2>仕組みから理解することを重視</h2>
+    <div class="about-value-layout">
+      
+      <span class="about-value-nav is-placeholder" aria-hidden="true"></span>
+
+      <div class="about-value-body">
+        
+        <h2>仕組みから理解することを重視</h2>
+      
+        <h3>考え方</h3>
+
+        <ul class="about-value-detail">
+        
+          <li>
+            機能や処理を利用する際はなるべく「とりあえず使う」だけではなく、<br>
+            「なぜ動くのか」を意識しています。
+          </li>
+        
+          <li>
+            またエラーが発生した際も、発生した箇所だけではなく、<br>
+            その周りの処理の中身も確認するようにしています。
+          </li>
+        
+        </ul>
+
+        <h3>制作へどう活かしているのか</h3>
+
+        <ul class="about-value-detail">
+          
+          <li>
+            仕組みを理解することで、その処理の意図や内容をイメージしやすくすることで<br>
+            エラーや不具合などを少しでも追いやすく、解決できるようにしています。
+          </li>
+          
+          <li>
+            AIによる機能や処理の提案を受けた際も、<br>
+            必ずその処理を理解できるまで調べ、対話を行い、<br>
+            その上で自分の制作にどう取り入れるかどうかを判断するようにしています。
+          </li>
+
+        </ul>
+
+      </div>
     
-    <ul class="about-value-detail">
+      <button type="button"
+        class="about-value-nav about-value-nav--next"
+        data-screen="about-value-2"
+        aria-label="次の要素へ">
+        <i class="fa-solid fa-angles-right" aria-hidden="true"></i>
+      </button>
+
+    </div>
+
+
+  </article>
+
+  <article class="detail-content is-hidden" data-content="about-value-2">
+
+    <div class="about-value-layout">
     
-      <li>
-        機能や処理を利用する際はなるべく「とりあえず使う」のではなく、
-        「なぜ動くのか」を意識しています。
-      </li>
+      <button type="button"
+        class="about-value-nav about-value-nav--prev"
+        data-screen="about-value-1"
+        aria-label="前の要素へ">
+        <i class="fa-solid fa-angles-left" aria-hidden="true"></i>
+      </button>
+      
+      <div class="about-value-body">
+          
+          <h2>コードの理解と保守性を意識した設計</h2>
+
+          <h3>考え方</h3>
+          
+          <ul class="about-value-detail">
+          
+            <li>
+              機能の実装時は、現在の知識や経験で理解、<br>
+              説明できる設計を選択するようにしています。
+            </li>
+          
+            <li>
+              複雑な設計や技術を知らずに使用をすることは避け、<br>
+              なるべく処理の追いやすい設計を選択するようにしています。
+            </li>
+            
+            <li>
+              また、新しい技術については理解した内容を制作に取り入れ、<br>
+              少しずつ設計の幅を広げることを意識しています。
+            </li>
+
+          </ul>
+
+          <h3>制作へどう活かしているのか</h3>
+
+          <ul class="about-value-detail">
+          
+            <li>
+              自分でもプロジェクトの理解がしやすいよう、クラスの設計や関数の責務などを<br>
+              なるべくシンプルに分離しています。  
+            </li>
+            
+            <li>
+              変数や関数名など、名前からどんなものなのかがわかるように<br>
+              命名することを意識しています。
+            </li>
+
+          </ul>     
+      </div>
+        
+      <button type="button"
+        class="about-value-nav about-value-nav--next"
+        data-screen="about-value-3"
+        aria-label="次の要素へ">
+        <i class="fa-solid fa-angles-right" aria-hidden="true"></i>
+      </button>
     
-      <li>
-        またエラーが発生した際も、発生した箇所だけではなく、
-        その周りの処理の中身も確認するようにしています。
-      </li>
-    
-    </ul>
+    </div>
   
   </article>
 
-  <!--要素２と３は１が完成した後に実装予定 -->
+  <article class="detail-content is-hidden" data-content="about-value-3">
+
+    <div class="about-value-layout">
+      
+      <button type="button"
+        class="about-value-nav about-value-nav--prev"
+        data-screen="about-value-2"
+        aria-label="前の要素へ">
+        <i class="fa-solid fa-angles-left" aria-hidden="true"></i>
+      </button>
+
+      <div class="about-value-body">
+        
+        <h2>他者へ伝わるコードを意識</h2>
+    
+        <h3>考え方</h3>
+
+        <ul class="about-value-detail">
+        
+          <li>
+            制作した内容や処理の意図を、自分以外の人にも理解してもらえる形で<br>
+            整理することを意識しています。
+          </li>
+          
+          <li>
+            コードだけで伝わりにくい部分については、コメントや図を活用し、<br>
+            エンジニア以外の人でも内容を追いやすい状態を目指しています。
+          </li>
+
+        </ul>
+
+        <h3>制作へどう活かしているのか</h3>
+
+        <ul class="about-value-detail">
+        
+          <li>
+            なるべくコードの上ではなく隣にコメントを記述するようにしています。<br>
+            右側のみを見るだけでエンジニアでなくても処理の意図がわかるようにすることで、<br>
+            コードを追いやすくしています。
+          </li>
+          
+          <li>
+            専門用語や略語をなるべく使わず、誰でも理解できる言葉で<br>
+            コメントを記述するようにしています。<br>
+            その際、文章の順番は「どこで、何を、どのようにするのか」<br>
+            という順番を意識して記述するようにしています。
+          </li>
+        
+        </ul>
+
+      </div>
+
+      <span class="about-value-nav is-placeholder" aria-hidden="true"></span>
+    
+    </div>
 
 
 
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
+  </article>
 
 
   <article class="detail-content is-hidden" data-content="skills">

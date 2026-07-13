@@ -2,7 +2,8 @@
 let currentScreen = 'top';
 
 const VALID_SCREENS = [
-  'top', 'about', 'about-more', 'about-value-1',
+  'top', 'about', 'about-more',
+  'about-value-1', 'about-value-2', 'about-value-3',
   'skills', 'works', 'contact'
 ];
 
@@ -51,7 +52,9 @@ function applyScreenChange(name) {
     const isAboutFamily =
     name === 'about' ||
     name === 'about-more' ||
-    name === 'about-value-1';
+    name === 'about-value-1' ||
+    name === 'about-value-2' ||
+    name === 'about-value-3';
 
     const active = isTop ? (target === 'top') : (target === name || (isAboutFamily && target === 'about'));
 
@@ -173,9 +176,13 @@ document.addEventListener('DOMContentLoaded', () =>
   
     if (backButton) 
     {
-     backButton.addEventListener('click', () => 
+      backButton.addEventListener('click', () => 
       {
-        if (currentScreen === 'about-value-1') {
+        if (
+          currentScreen === 'about-value-1' ||
+          currentScreen === 'about-value-2' ||
+          currentScreen === 'about-value-3'
+        ) {
           showScreen('about-more');
         } else if (currentScreen === 'about-more') {
           showScreen('about');
@@ -255,3 +262,11 @@ async function loadGitHubRepos()
     console.warn('GitHub API error:', error);
   }
 }
+
+document.querySelectorAll('.about-value-btn[data-screen], .about-value-nav[data-screen]').forEach((button) => 
+{
+  button.addEventListener('click', () => 
+  {
+  showScreen(button.getAttribute('data-screen'));
+  });
+});
