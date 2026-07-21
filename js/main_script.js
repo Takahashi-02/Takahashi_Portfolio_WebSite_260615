@@ -209,9 +209,7 @@ document.addEventListener('DOMContentLoaded', () =>
       });
     });
 
-
-    // DOMContentLoaded 内で呼ぶ
-    initBiographyScroll();
+    initSkillsPanel(); 
 
 });
 
@@ -275,23 +273,21 @@ document.querySelectorAll('.about-value-btn[data-screen], .about-value-nav[data-
   });
 });
 
-function initBiographyScroll() {
-  const viewport = document.querySelector('.about-bio__viewport');
-  const eras = document.querySelectorAll('.bio-era');
-  if (!viewport || !eras.length) return;
+function initSkillsPanel() {
+  const buttons = document.querySelectorAll('.skill-btn[data-skill]');
+  const panels = document.querySelectorAll('.skills-detail-panel[data-skill-panel]');
+  if (!buttons.length || !panels.length) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          eras.forEach((era) => era.classList.remove('is-active'));
-          entry.target.classList.add('is-active');
-        }
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const id = button.getAttribute('data-skill');
+
+      buttons.forEach((btn) => btn.classList.toggle('is-active', btn === button));
+      panels.forEach((panel) => {
+        const isTarget = panel.getAttribute('data-skill-panel') === id;
+        panel.toggleAttribute('hidden', !isTarget);
+        panel.classList.toggle('is-active', isTarget);
       });
-    },
-    { root: viewport, threshold: 0.55 }
-  );
-
-  eras.forEach((era) => observer.observe(era));
+    });
+  });
 }
-

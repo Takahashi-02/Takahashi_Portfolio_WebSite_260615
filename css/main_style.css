@@ -421,19 +421,16 @@ body.is-detail-open .command-panel
   grid-template-columns: minmax(140px, 32%) 1fr;
    grid-template-areas:
     "name   title"
-    "profile summary"
-    ".      more";
-  margin-bottom: 0;
+    "profile summary";
   gap: 12px 20px;
   align-items: start;
   margin-bottom: 20px;
 }
 
-.about-hero__more {
-  grid-area: more;
-  justify-self: end;
-  align-self: end;
-  padding-top: 8px;
+.about-summary__more {
+  display: flex;
+  justify-content: center;   /* ゲージ幅の中央 */
+  margin-top: 24px;          /* ゲージとの間隔（好みで調整） */
 }
 
 /* 赤枠: 名前 */
@@ -579,7 +576,7 @@ body.is-detail-open .command-panel
 
 .btn-more {
   display: inline-block;
-  margin-bottom: 16px;
+  margin-bottom: 0;      /* 下の余白は不要 */
   padding: 8px 20px;
   background: #000;
   border: 2px solid #fff;
@@ -598,12 +595,57 @@ body.is-detail-open .command-panel
   max-width: none;
   margin: 28px auto 20px;
 }
-
+  
 .detail-content[data-content="about-value-1"],
 .detail-content[data-content="about-value-2"],
-.detail-content[data-content="about-value-3"] {
+.detail-content[data-content="about-value-3"] 
+{
+  max-width: none;  
+}
+
+
+/* about-more：1画面1ブロック（高さはパネルに合わせる） */
+.detail-content[data-content="about-more"] {
   max-width: none;
 }
+
+/* about-more：自然な高さで縦に並べる */
+.detail-content[data-content="about-more"] .about-values {
+  padding-bottom: 32px;
+}
+
+.detail-content[data-content="about-more"] .bio-era {
+  padding-bottom: 32px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.detail-content[data-content="about-more"] .bio-era:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.about-more .about-values {
+  margin: 0;
+}
+
+.about-bio__header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: transparent;              /* 黒い枠を消す */
+  padding: 12px 0 8px;
+  margin-bottom: 0;
+}
+
+/* 各時代：左本文・右挿絵（既存 grid を活かす） */
+.about-more .bio-era {
+  align-content: center;   /* 縦方向の中央寄せ */
+  margin-bottom: 0;        /* 以前の margin-bottom: 32px は外す */
+  padding-bottom: 0;
+  border-bottom: none;     /* 区切り線は任意 */
+}
+
 
 
 .about-value-btn {
@@ -641,8 +683,9 @@ body.is-detail-open .command-panel
 .about-section {
   margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);  /* ← 区切り線 */
 }
+
 .section-lead {
   margin-bottom: 12px;
   opacity: 0.9;
@@ -674,20 +717,59 @@ body.is-detail-open .command-panel
 
 
 /* ========================================
-   Skills 画面
+   Skills 画面（2列カード）
    ======================================== */
-.skill-card {
-  margin: 12px 0;
-  padding: 12px 14px;
-  border: 2px solid #fff;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 24px;
+  margin-top: 20px;
 }
-.skills-subtitle {
-  margin-top: 24px;
+
+.skill-card {
+  padding: 16px 18px;
+  border: 2px solid #fff;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.skill-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
   margin-bottom: 12px;
 }
-.tool-list {
-  line-height: 1.8;
+
+.skill-card__title {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}
+
+.skill-card__period {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.skill-card__tag {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.skill-card__list {
+  margin: 0;
   padding-left: 1.2em;
+  line-height: 1.75;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 
@@ -1077,26 +1159,21 @@ body.is-detail-open .command-panel
   pointer-events: none;
 }
 
-.about-bio__viewport {
-  height: min(58vh, 480px);   /* 時代1枚分の「窓」 */
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+.about-bio {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;   /* Biography セクションの下線を消す */
 }
 
 .bio-era {
-  min-height: 100%;
-  scroll-snap-align: start;
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(140px, 0.8fr);
   gap: 20px 28px;
   align-items: center;
-  opacity: 0.35;              /* 非アクティブはやや薄く */
-  transition: opacity 0.35s ease;
-}
-
-.bio-era.is-active {
-  opacity: 1;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .bio-era__art img {
@@ -1104,4 +1181,14 @@ body.is-detail-open .command-panel
   height: auto;
   display: block;
   margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .bio-era {
+    grid-template-columns: 1fr;
+  }
+
+  .bio-era__art img {
+    margin: 0 auto;
+  }
 }
